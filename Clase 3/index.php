@@ -1,5 +1,6 @@
 <?php
     INCLUDE './clases/persona.php';
+    INCLUDE './clases/personaDao.php';
 
    // $archivo = fopen("./prueba.txt", "a");
    // $rta=fwrite($archivo,"hol1a");
@@ -8,26 +9,18 @@
 
     $request = ($_SERVER['REQUEST_METHOD']);
 
-
+    $dao = new personaDao();
 switch($request){
     case "POST" : 
-        if(isset($_POST["Nombre"]) && isset($_POST["Apellido"]))
+        if(isset($_POST["Nombre"]) && isset($_POST["Apellido"]) && isset($_POST["Legajo"]))
         {
-            $archivo = fopen("./prueba.txt", "a");
-            $rta=fwrite($archivo, PHP_EOL.$_POST["Nombre"]. ' - '. $_POST["Apellido"]);
-            $rta2=fclose($archivo);
+            $persona = new Persona($_POST["Nombre"], $_POST["Apellido"], $_POST["Legajo"]);
+            $dao->guardar($persona);
+
         }
         break;
     case "GET" :
-        $archivo = fopen("./prueba.txt", "r");
-        while(!feof($archivo))
-        {
-            //echo fgets($archivo);
-            $personaAux = explode(' - ', fgets($archivo));
-            $persona = new Persona($personaAux[0], $personaAux[1]);
-            $persona->saludar();
-        }
-        $rta2=fclose($archivo);
+
         break;
        
         
