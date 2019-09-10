@@ -1,4 +1,1 @@
-Berga - Mota - 104328
-Alejandro - Saliba - 197584
-Chapulin - Colorado - 369741
-LeaGaby - KpTos - 114488
+[{"Nombre":"LeaGaby","Apellido":"KpTos","Legajo":"789545"}]

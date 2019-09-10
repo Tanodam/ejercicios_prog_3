@@ -9,13 +9,13 @@
 
     $request = ($_SERVER['REQUEST_METHOD']);
 
-    $dao = new personaDao();
+    $dao = new personaDao(".\prueba.txt");
 switch($request){
     case "POST" : 
         if(isset($_POST["Nombre"]) && isset($_POST["Apellido"]) && isset($_POST["Legajo"]))
         {
             $persona = new Persona($_POST["Nombre"], $_POST["Apellido"], $_POST["Legajo"]);
-            $dao->guardar($persona);
+            $dao->guardar($persona);    
 
         }
         break;
@@ -25,5 +25,3 @@ switch($request){
        
         
 }
-
-?>
