@@ -1,0 +1,2953 @@
+﻿{
+    [
+        {
+            "LOTE": "Lote 00001",
+            "Numero SLRG": "SLRG001",
+            "CUFE": "1",
+            "Nombre SLRG": "Consulta de Contribuyente Único",
+            "Modulo": "Contribuyente Único"
+        },
+        {
+            "LOTE": "Lote 00001/2",
+            "Numero SLRG": "SLRG002",
+            "CUFE": "2",
+            "Nombre SLRG": "Alta de Contribuyente Único",
+            "Modulo": "Contribuyente Único"
+        },
+        {
+            "LOTE": "Lote 00002",
+            "Numero SLRG": "SLRG003",
+            "CUFE": "3",
+            "Nombre SLRG": "Modificación de Contribuyente Único",
+            "Modulo": "Contribuyente Único"
+        },
+        {
+            "LOTE": "Lote 00011",
+            "Numero SLRG": "SLRG010",
+            "CUFE": "144",
+            "Nombre SLRG": "Alta conceptos resolución impuestos",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00011",
+            "Numero SLRG": "SLRG011",
+            "CUFE": "177",
+            "Nombre SLRG": "Modificación conceptos resolución impuestos",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00011",
+            "Numero SLRG": "SLRG012",
+            "CUFE": "174",
+            "Nombre SLRG": "Consulta concepto resolución impuesto",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00026",
+            "Numero SLRG": "SLRG013",
+            "CUFE": "191",
+            "Nombre SLRG": "Consulta al Padrón de Plan de Facilidades",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00067",
+            "Numero SLRG": "SLRG016",
+            "CUFE": "288",
+            "Nombre SLRG": "Inactividad de planes de facilidades",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00092",
+            "Numero SLRG": "SLRG017",
+            "CUFE": "183",
+            "Nombre SLRG": "Informe de deuda administrativa registrada para Planes de Facilidades",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00128",
+            "Numero SLRG": "SLRG021",
+            "CUFE": "359",
+            "Nombre SLRG": "Simulación con Alta de Planes - Deuda Judicial",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00215",
+            "Numero SLRG": "SLRG022",
+            "CUFE": "491",
+            "Nombre SLRG": "Solicitud con Alta de Planes - Deuda Concursada",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00011",
+            "Numero SLRG": "SLRG023",
+            "CUFE": "182",
+            "Nombre SLRG": "Alta de Parámetros para Generación de Planes",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00011",
+            "Numero SLRG": "SLRG025",
+            "CUFE": "180",
+            "Nombre SLRG": "Consulta Parámetros para Generación de Planes",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00024",
+            "Numero SLRG": "SLRG028",
+            "CUFE": "106",
+            "Nombre SLRG": "Alta de Situación Fiscal",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00159",
+            "Numero SLRG": "SLRG035",
+            "CUFE": "406",
+            "Nombre SLRG": "Reversa de Adjudicación deuda a GJ",
+            "Modulo": "Gestión Judicial"
+        },
+        {
+            "LOTE": "Lote 00177",
+            "Numero SLRG": "SLRG036",
+            "CUFE": "435",
+            "Nombre SLRG": "Reasignación de deuda a Mandatario",
+            "Modulo": "Gestión Judicial"
+        },
+        {
+            "LOTE": "Lote 00154",
+            "Numero SLRG": "SLRG037",
+            "CUFE": "397",
+            "Nombre SLRG": "Desistimiento o Reversa de Juicio",
+            "Modulo": "Gestión Judicial"
+        },
+        {
+            "LOTE": "Lote 00024",
+            "Numero SLRG": "SLRG038",
+            "CUFE": "107",
+            "Nombre SLRG": "Alta de Caracteres de Exencion",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00024",
+            "Numero SLRG": "SLRG039",
+            "CUFE": "109",
+            "Nombre SLRG": "Alta de Normativas de Exencion",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00024",
+            "Numero SLRG": "SLRG040",
+            "CUFE": "115",
+            "Nombre SLRG": "Alta de Expedientes de Exencion",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00022",
+            "Numero SLRG": "SLRG042",
+            "CUFE": "231",
+            "Nombre SLRG": "Simulación con Alta de Planes-Deuda Adm. Registrada",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00024",
+            "Numero SLRG": "SLRG043",
+            "CUFE": "117",
+            "Nombre SLRG": "Alta de tramos de exencion",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00032",
+            "Numero SLRG": "SLRG047",
+            "CUFE": "143",
+            "Nombre SLRG": "Alta de exención",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00031",
+            "Numero SLRG": "SLRG049",
+            "CUFE": "246",
+            "Nombre SLRG": "Cancelación anticipada de PF",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00065",
+            "Numero SLRG": "SLRG050",
+            "CUFE": "612",
+            "Nombre SLRG": "Alta de Exención por Objeto",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00001",
+            "Numero SLRG": "SLRG051",
+            "CUFE": "19",
+            "Nombre SLRG": "Trámite x Adopción de Nombre Especial",
+            "Modulo": "Contribuyente Único"
+        },
+        {
+            "LOTE": "Lote 00001",
+            "Numero SLRG": "SLRG052",
+            "CUFE": "20",
+            "Nombre SLRG": "Trámite x Cbio de Apellido y Nombre o Razón Social",
+            "Modulo": "Contribuyente Único"
+        },
+        {
+            "LOTE": "Lote 00001",
+            "Numero SLRG": "SLRG053",
+            "CUFE": "27",
+            "Nombre SLRG": "Trámite x Cbio de Correos Electrónicos",
+            "Modulo": "Contribuyente Único"
+        },
+        {
+            "LOTE": "Lote 00001",
+            "Numero SLRG": "SLRG054",
+            "CUFE": "3",
+            "Nombre SLRG": "Trámite x Cbio de Domicilio Fiscal",
+            "Modulo": "Contribuyente Único"
+        },
+        {
+            "LOTE": "Lote 00001",
+            "Numero SLRG": "SLRG055",
+            "CUFE": "6",
+            "Nombre SLRG": "Trámite x Cbio de Naturaleza Jurídica",
+            "Modulo": "Contribuyente Único"
+        },
+        {
+            "LOTE": "Lote 00001",
+            "Numero SLRG": "SLRG056",
+            "CUFE": "5",
+            "Nombre SLRG": "Trámite x Cbio de Teléfonos",
+            "Modulo": "Contribuyente Único"
+        },
+        {
+            "LOTE": "Lote 00001",
+            "Numero SLRG": "SLRG057",
+            "CUFE": "6",
+            "Nombre SLRG": "Trámite x Cbio en Personas vinculadas",
+            "Modulo": "Contribuyente Único"
+        },
+        {
+            "LOTE": "Lote 00001",
+            "Numero SLRG": "SLRG058",
+            "CUFE": "34",
+            "Nombre SLRG": "Consulta de Trámites con Filtro",
+            "Modulo": "Contribuyente Único"
+        },
+        {
+            "LOTE": "Lote 00001",
+            "Numero SLRG": "SLRG059",
+            "CUFE": "35",
+            "Nombre SLRG": "Consulta Puntual de Trámites con Opción a Aprobar o Anular",
+            "Modulo": "Contribuyente Único"
+        },
+        {
+            "LOTE": "Lote 00003",
+            "Numero SLRG": "SLRG060",
+            "CUFE": "41",
+            "Nombre SLRG": "Servicio de CTA CTE Analitico por Impuesto ID",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00003",
+            "Numero SLRG": "SLRG061",
+            "CUFE": "40",
+            "Nombre SLRG": "Consulta Cta. Cte. consolidada con tramos de titularidad",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00003",
+            "Numero SLRG": "SLRG062",
+            "CUFE": "41",
+            "Nombre SLRG": "Consulta de Cta. Cte. Analitica con Tramos de Titularidad",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00003",
+            "Numero SLRG": "SLRG063",
+            "CUFE": "41",
+            "Nombre SLRG": "Consulta de Deuda Consolidada sin Tramos de Titularidad",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00005/00113",
+            "Numero SLRG": "SLRG064",
+            "CUFE": "64",
+            "Nombre SLRG": "Tramite por Alta al ISIB-RS",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00005",
+            "Numero SLRG": "SLRG066",
+            "CUFE": "- // ver SLRG182",
+            "Nombre SLRG": "Tramite por Rectificativa de Alta al ISIB-RS",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00005/00112",
+            "Numero SLRG": "SLRG067",
+            "CUFE": "66",
+            "Nombre SLRG": "Tramite por Cambio de Actividad ISIB-RS",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00005",
+            "Numero SLRG": "SLRG068",
+            "CUFE": "71",
+            "Nombre SLRG": "Tramite por Cambio de Parametros ISIB-RS",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00012/00114",
+            "Numero SLRG": "SLRG069",
+            "CUFE": "76",
+            "Nombre SLRG": "Trámite por Cambio de Fecha de Obligación ISIB-RS",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00004",
+            "Numero SLRG": "SLRG070",
+            "CUFE": "51",
+            "Nombre SLRG": "Incorporar Rangos de Números Disponibles",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00008",
+            "Numero SLRG": "SLRG074",
+            "CUFE": "53",
+            "Nombre SLRG": "Constancia de Deuda Única",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00028",
+            "Numero SLRG": "SLRG075",
+            "CUFE": "97",
+            "Nombre SLRG": "Consulta Tabla de Categorías ISIB-RS",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00028",
+            "Numero SLRG": "SLRG076",
+            "CUFE": "99",
+            "Nombre SLRG": "Consulta Estado Padrón ISIB-RS",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00013/00111",
+            "Numero SLRG": "SLRG077",
+            "CUFE": "98",
+            "Nombre SLRG": "Tramite por modificacion de Tramos de Actividad ISIB",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00006",
+            "Numero SLRG": "SLRG078",
+            "CUFE": "54",
+            "Nombre SLRG": "Consulta de Saldos de Cta Cte de una CUIT - IMPUESTO",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00006",
+            "Numero SLRG": "SLRG079",
+            "CUFE": "65",
+            "Nombre SLRG": "Consulta de Saldos de Cuenta Corriente por CUIT",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00004",
+            "Numero SLRG": "SLRG080",
+            "CUFE": "41",
+            "Nombre SLRG": "Consulta de Movimientos de Cuenta Corriente por Fecha y Hora",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00004",
+            "Numero SLRG": "SLRG081",
+            "CUFE": "41",
+            "Nombre SLRG": "Consulta de Movimientos de Cuenta Corriente por Transacción",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00012",
+            "Numero SLRG": "SLRG082",
+            "CUFE": "105",
+            "Nombre SLRG": "Consulta nomencladores de actividades",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00010",
+            "Numero SLRG": "SLRG083",
+            "CUFE": "75",
+            "Nombre SLRG": "Consulta de lote",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00007",
+            "Numero SLRG": "SLRG084",
+            "CUFE": "79",
+            "Nombre SLRG": "Consulta de Lotes por Banco entre Fechas",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00010",
+            "Numero SLRG": "SLRG085",
+            "CUFE": "86",
+            "Nombre SLRG": "Consulta Totales Recaudación por Cuenta",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00007",
+            "Numero SLRG": "SLRG086",
+            "CUFE": "133",
+            "Nombre SLRG": "Consulta por Lote Origen",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00012",
+            "Numero SLRG": "SLRG087",
+            "CUFE": "92",
+            "Nombre SLRG": "Consulta al padrón ISIB con filtro",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00012",
+            "Numero SLRG": "SLRG088",
+            "CUFE": "93",
+            "Nombre SLRG": "Consulta al padrón ISIB puntual",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00013",
+            "Numero SLRG": "SLRG089",
+            "CUFE": "95",
+            "Nombre SLRG": "Consulta Log Padrones ISIB",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00005",
+            "Numero SLRG": "SLRG090",
+            "CUFE": "89",
+            "Nombre SLRG": "Trámite de Recategorización ISIB-RS",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00012",
+            "Numero SLRG": "SLRG091",
+            "CUFE": "103",
+            "Nombre SLRG": "Consulta equivalencias entre Nomencladores de Actividades ISIB",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00013",
+            "Numero SLRG": "SLRG092",
+            "CUFE": "84",
+            "Nombre SLRG": "Trámite por Pases a otras Categorías ISIB desde RS",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00007",
+            "Numero SLRG": "SLRG093",
+            "CUFE": "133",
+            "Nombre SLRG": "Consulta puntual Mulat",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00058",
+            "Numero SLRG": "SLRG094",
+            "CUFE": "119",
+            "Nombre SLRG": "Trámite por Alta Agentes de Recaudación ISIB",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00062",
+            "Numero SLRG": "SLRG095",
+            "CUFE": "121",
+            "Nombre SLRG": "Baja Agente de Recaudación ISIB",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00060",
+            "Numero SLRG": "SLRG096",
+            "CUFE": "134",
+            "Nombre SLRG": "Trámite por Actualización de normas AR-ISIB",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00059",
+            "Numero SLRG": "SLRG098",
+            "CUFE": "125",
+            "Nombre SLRG": "Consulta al Padrón Agentes con filtro",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00007",
+            "Numero SLRG": "SLRG100",
+            "CUFE": "116",
+            "Nombre SLRG": "Consulta de Lotes Rechazados por Fecha de Depósito",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00007",
+            "Numero SLRG": "SLRG101",
+            "CUFE": "118",
+            "Nombre SLRG": "Consulta por Número de Envío Mulat",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00061",
+            "Numero SLRG": "SLRG102",
+            "CUFE": "110",
+            "Nombre SLRG": "Emisión Constancia de Inscripción Agente de Recaudación ISIB",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00009",
+            "Numero SLRG": "SLRG105",
+            "CUFE": "122",
+            "Nombre SLRG": "Consulta de cheques rechazados",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00010",
+            "Numero SLRG": "SLRG106",
+            "CUFE": "130",
+            "Nombre SLRG": "Consulta de movimientos a lotes",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00010",
+            "Numero SLRG": "SLRG107",
+            "CUFE": "129",
+            "Nombre SLRG": "Consulta de Pagos por número de lote",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00034",
+            "Numero SLRG": "SLRG108",
+            "CUFE": "149",
+            "Nombre SLRG": "Tratamiento Tramos de Titularidad",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00009",
+            "Numero SLRG": "SLRG109",
+            "CUFE": "131",
+            "Nombre SLRG": "Alta de pago manual",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00010",
+            "Numero SLRG": "SLRG110",
+            "CUFE": "137",
+            "Nombre SLRG": "Consulta por crédito origen",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00009",
+            "Numero SLRG": "SLRG111",
+            "CUFE": "138",
+            "Nombre SLRG": "Reversa de marca de cheque rechazado imputado",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00009",
+            "Numero SLRG": "SLRG112",
+            "CUFE": "139",
+            "Nombre SLRG": "Marca de Cheque Rechazado",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00066",
+            "Numero SLRG": "SLRG113",
+            "CUFE": "136",
+            "Nombre SLRG": "Consulta Log de Padrones Agentes ISIB",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00009",
+            "Numero SLRG": "SLRG114",
+            "CUFE": "141",
+            "Nombre SLRG": "Reversa Alta de Pago Manual",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00040",
+            "Numero SLRG": "SLRG115",
+            "CUFE": "142",
+            "Nombre SLRG": "Baja de adhesión a Débito Directo",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00040",
+            "Numero SLRG": "SLRG116",
+            "CUFE": "145",
+            "Nombre SLRG": "Reserva Baja Adhesión a Débito Directo",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00045",
+            "Numero SLRG": "SLRG117",
+            "CUFE": "146",
+            "Nombre SLRG": "Devolución de Pagos de Débito Directo",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00045",
+            "Numero SLRG": "SLRG118",
+            "CUFE": "147",
+            "Nombre SLRG": "Reversa de Devolución de Pagos de Débito Directo",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00042",
+            "Numero SLRG": "SLRG119",
+            "CUFE": "151",
+            "Nombre SLRG": "Consulta Histórica de cargos Débito Directo",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00042",
+            "Numero SLRG": "SLRG120",
+            "CUFE": "152",
+            "Nombre SLRG": "Consulta esperanza de cobro Débito Directo",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00041",
+            "Numero SLRG": "SLRG121",
+            "CUFE": "157",
+            "Nombre SLRG": "Consulta integrada de Padrón Débito Directo",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00033",
+            "Numero SLRG": "SLRG122",
+            "CUFE": "167",
+            "Nombre SLRG": "Tratamiento de Relaciones Especiales sobre Bienes",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00038",
+            "Numero SLRG": "SLRG123",
+            "CUFE": "200",
+            "Nombre SLRG": "Tratamiento de Titularidad por Tramos",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00023/00131/00183",
+            "Numero SLRG": "SLRG124",
+            "CUFE": "158",
+            "Nombre SLRG": "Consulta DDJJ Formato Universal",
+            "Modulo": "ISIB/Gravamenes varios"
+        },
+        {
+            "LOTE": "Lote 00005",
+            "Numero SLRG": "SLRG125",
+            "CUFE": "168",
+            "Nombre SLRG": "Emisión de Boleta Simple para Pago ISIB-RS",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00011",
+            "Numero SLRG": "SLRG126",
+            "CUFE": "181",
+            "Nombre SLRG": "Modificación Parámetros para la Generación de Planes",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00020",
+            "Numero SLRG": "SLRG127",
+            "CUFE": "188",
+            "Nombre SLRG": "Simulación de Acogimiento a Plan de Facilidades",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00013/00129",
+            "Numero SLRG": "SLRG128",
+            "CUFE": "195",
+            "Nombre SLRG": "Trámite por Actualizacion de Domicilios Especiales ISIB",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00015",
+            "Numero SLRG": "SLRG129",
+            "CUFE": "197",
+            "Nombre SLRG": "Verificación de Conceptos Resolución-Impuesto",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00015",
+            "Numero SLRG": "SLRG130",
+            "CUFE": "198",
+            "Nombre SLRG": "Aprobación de Conceptos Resolución-Impuesto",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00016",
+            "Numero SLRG": "SLRG131",
+            "CUFE": "199",
+            "Nombre SLRG": "Verificación de Parámetros para Generación de Planes",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00016",
+            "Numero SLRG": "SLRG132",
+            "CUFE": "212",
+            "Nombre SLRG": "Aprobación de Parámetros para Generación de Planes",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00056",
+            "Numero SLRG": "SLRG133",
+            "CUFE": "281",
+            "Nombre SLRG": "Aprobación Total de la Parametría para Generación de Planes",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00014",
+            "Numero SLRG": "SLRG134",
+            "CUFE": "207",
+            "Nombre SLRG": "Generación de Saldo a favor sin controles",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00014",
+            "Numero SLRG": "SLRG136",
+            "CUFE": "208",
+            "Nombre SLRG": "Generación de Saldo a favor con control relación Imp Id",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00014",
+            "Numero SLRG": "SLRG137",
+            "CUFE": "209",
+            "Nombre SLRG": "Generación de Saldo a favor con control Saldo",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00017",
+            "Numero SLRG": "SLRG138",
+            "CUFE": "211",
+            "Nombre SLRG": "Consulta de Pagos Pendientes de imputación",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00014",
+            "Numero SLRG": "SLRG139",
+            "CUFE": "210",
+            "Nombre SLRG": "Generación de Saldo a favor con control rel Imp Id y Saldo",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00051",
+            "Numero SLRG": "SLRG140",
+            "CUFE": "228",
+            "Nombre SLRG": "Consultar al Padrón de ABL",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00017",
+            "Numero SLRG": "SLRG141",
+            "CUFE": "220",
+            "Nombre SLRG": "Ajuste de Pagos Pendientes de Imputación",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00017",
+            "Numero SLRG": "SLRG142",
+            "CUFE": "216",
+            "Nombre SLRG": "Consulta de Movimientos a Pagos Pendientes de Imputación",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00021",
+            "Numero SLRG": "SLRG143",
+            "CUFE": "223",
+            "Nombre SLRG": "Devolución de Pagos",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00019",
+            "Numero SLRG": "SLRG144",
+            "CUFE": "204",
+            "Nombre SLRG": "Emisión Boleta Múltiple ISIB-RS",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00021",
+            "Numero SLRG": "SLRG145",
+            "CUFE": "224",
+            "Nombre SLRG": "Reversa Devolución de Pagos",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00021",
+            "Numero SLRG": "SLRG146",
+            "CUFE": "225",
+            "Nombre SLRG": "Baja de Pagos por Error de Rendición",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00021",
+            "Numero SLRG": "SLRG147",
+            "CUFE": "226",
+            "Nombre SLRG": "Reversa Baja de Pago por Error de Rendición",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00027",
+            "Numero SLRG": "SLRG148",
+            "CUFE": "234",
+            "Nombre SLRG": "Imputación Manual de Saldos a Favor",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00018",
+            "Numero SLRG": "SLRG150",
+            "CUFE": "214",
+            "Nombre SLRG": "Disposición para Verificación de Conceptos",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00018",
+            "Numero SLRG": "SLRG151",
+            "CUFE": "215",
+            "Nombre SLRG": "Disposición para Verificación de Parámetros",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00033",
+            "Numero SLRG": "SLRG152",
+            "CUFE": "236",
+            "Nombre SLRG": "Administración de domicilios postales relacionados impuesto-id",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00025",
+            "Numero SLRG": "SLRG153",
+            "CUFE": "222",
+            "Nombre SLRG": "Trámite de Cese Total ISIB",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00063",
+            "Numero SLRG": "SLRG154",
+            "CUFE": "269",
+            "Nombre SLRG": "Emisión Boletas por Pago Porcentual",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00025",
+            "Numero SLRG": "SLRG155",
+            "CUFE": "232",
+            "Nombre SLRG": "Reversa Trámite de Cese Total de Actividades ISIB",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00039",
+            "Numero SLRG": "SLRG156",
+            "CUFE": "233",
+            "Nombre SLRG": "Consulta de Partidas por el Prefijo del Titular",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00039",
+            "Numero SLRG": "SLRG157",
+            "CUFE": "237",
+            "Nombre SLRG": "Consulta de Partidas por Ubicación Física",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00052",
+            "Numero SLRG": "SLRG158",
+            "CUFE": "250",
+            "Nombre SLRG": "Alta de vehículos",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00079",
+            "Numero SLRG": "SLRG159",
+            "CUFE": "314",
+            "Nombre SLRG": "Alta de Alícuotas y valores de Impuestos",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00063",
+            "Numero SLRG": "SLRG160",
+            "CUFE": "270",
+            "Nombre SLRG": "Consulta emisión y pago de boletas por espacios guardacoches",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00029",
+            "Numero SLRG": "SLRG161",
+            "CUFE": "243",
+            "Nombre SLRG": "Consulta con modificación de situación fiscal",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00064",
+            "Numero SLRG": "SLRG162",
+            "CUFE": "265",
+            "Nombre SLRG": "Baja vehículo",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00029",
+            "Numero SLRG": "SLRG163",
+            "CUFE": "244",
+            "Nombre SLRG": "Consulta - Modificación de Carácter de Exento",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00029",
+            "Numero SLRG": "SLRG164",
+            "CUFE": "242",
+            "Nombre SLRG": "Consulta con modificación de una normativa de exención",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00029",
+            "Numero SLRG": "SLRG165",
+            "CUFE": "241",
+            "Nombre SLRG": "Consulta - Modificación de Tramos de Exención",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00106",
+            "Numero SLRG": "SLRG166",
+            "CUFE": "264",
+            "Nombre SLRG": "Pre-baja de vehículos",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00030",
+            "Numero SLRG": "SLRG167",
+            "CUFE": "245",
+            "Nombre SLRG": "Consulta, modificación y obtención de expedientes de exención",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00123",
+            "Numero SLRG": "SLRG168",
+            "CUFE": "362",
+            "Nombre SLRG": "Modifica datos del vehículo",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00036",
+            "Numero SLRG": "SLRG173",
+            "CUFE": "252",
+            "Nombre SLRG": "Consulta de exención",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00035",
+            "Numero SLRG": "SLRG174",
+            "CUFE": "255",
+            "Nombre SLRG": "Emisión única de boletas de impuestos empadronados",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00091",
+            "Numero SLRG": "SLRG175",
+            "CUFE": "256",
+            "Nombre SLRG": "Modificación de gravamen de ABL",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00075",
+            "Numero SLRG": "SLRG177",
+            "CUFE": "262",
+            "Nombre SLRG": "Actualización de Valuaciones por marca",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00158",
+            "Numero SLRG": "SLRG179",
+            "CUFE": "263",
+            "Nombre SLRG": "Reversa de Transacción",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00053",
+            "Numero SLRG": "SLRG180",
+            "CUFE": "278",
+            "Nombre SLRG": "Consulta de Boletas Emitidas",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00037",
+            "Numero SLRG": "SLRG181",
+            "CUFE": "267",
+            "Nombre SLRG": "Emisión Instrumento de Pago PF",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00005",
+            "Numero SLRG": "SLRG182",
+            "CUFE": "80",
+            "Nombre SLRG": "Tramite por Rectificativa de Alta al ISIB-RS",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00055",
+            "Numero SLRG": "SLRG184",
+            "CUFE": "271",
+            "Nombre SLRG": "Consulta al Padrón de Patentes",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00069",
+            "Numero SLRG": "SLRG185",
+            "CUFE": "286",
+            "Nombre SLRG": "Alta DDJJ y Emisión de Boleta para Grandes Contribuyentes",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00050",
+            "Numero SLRG": "SLRG186",
+            "CUFE": "272",
+            "Nombre SLRG": "Consulta de Coeficientes",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00209",
+            "Numero SLRG": "SLRG187",
+            "CUFE": "487",
+            "Nombre SLRG": "Consulta de Cuenta Recaudadora",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00219",
+            "Numero SLRG": "SLRG188",
+            "CUFE": "496",
+            "Nombre SLRG": "Consulta de Banco - Entidad",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00229",
+            "Numero SLRG": "SLRG189",
+            "CUFE": "516",
+            "Nombre SLRG": "Alta de Banco - Entidad",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00054",
+            "Numero SLRG": "SLRG190",
+            "CUFE": "279",
+            "Nombre SLRG": "Consulta de Vencimientos",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00211",
+            "Numero SLRG": "SLRG195",
+            "CUFE": "489",
+            "Nombre SLRG": "Alta de Cuenta Recaudadora",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00043",
+            "Numero SLRG": "SLRG196",
+            "CUFE": "276",
+            "Nombre SLRG": "Reimpresión constancia de acogimiento PF",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00212",
+            "Numero SLRG": "SLRG197",
+            "CUFE": "492",
+            "Nombre SLRG": "Baja de Cuenta Recaudadora",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00210",
+            "Numero SLRG": "SLRG198",
+            "CUFE": "488",
+            "Nombre SLRG": "Modificacion de Cuenta Recaudadora",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00348",
+            "Numero SLRG": "SLRG199",
+            "CUFE": "642",
+            "Nombre SLRG": "Baja de Banco - Entidad",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00347",
+            "Numero SLRG": "SLRG200",
+            "CUFE": "641",
+            "Nombre SLRG": "Modificacion de Banco - Entidad",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00044",
+            "Numero SLRG": "SLRG201",
+            "CUFE": "275",
+            "Nombre SLRG": "Baja de Exenciones",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00057",
+            "Numero SLRG": "SLRG203",
+            "CUFE": "280",
+            "Nombre SLRG": "Consulta genérica de Patentes",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00236",
+            "Numero SLRG": "SLRG205",
+            "CUFE": "498",
+            "Nombre SLRG": "Alta - Baja de Relación Cuenta - Impuesto",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00094",
+            "Numero SLRG": "SLRG206",
+            "CUFE": "333",
+            "Nombre SLRG": "Alta Sección - Mandatario",
+            "Modulo": "Gestión Judicial"
+        },
+        {
+            "LOTE": "Lote 00095",
+            "Numero SLRG": "SLRG207",
+            "CUFE": "323",
+            "Nombre SLRG": "Consulta Sección Mandatario",
+            "Modulo": "Gestión Judicial"
+        },
+        {
+            "LOTE": "Lote 00096",
+            "Numero SLRG": "SLRG208",
+            "CUFE": "324",
+            "Nombre SLRG": "Modificación Sección Mandatario",
+            "Modulo": "Gestión Judicial"
+        },
+        {
+            "LOTE": "Lote 00076",
+            "Numero SLRG": "SLRG209",
+            "CUFE": "298",
+            "Nombre SLRG": "Alta de parámetros para Adjudicación de deuda",
+            "Modulo": "Gestión Judicial"
+        },
+        {
+            "LOTE": "Lote 00070",
+            "Numero SLRG": "SLRG213",
+            "CUFE": "287",
+            "Nombre SLRG": "Consulta DDJJ SICOAR",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00068",
+            "Numero SLRG": "SLRG214",
+            "CUFE": "289",
+            "Nombre SLRG": "Consulta Tabla de Normas AR-ISIB",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00072",
+            "Numero SLRG": "SLRG215",
+            "CUFE": "293",
+            "Nombre SLRG": "Consulta DDJJ ARCIBA AR-ISIB",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00071",
+            "Numero SLRG": "SLRG220",
+            "CUFE": "294",
+            "Nombre SLRG": "Consulta DDJJ presentadas por GC",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00074",
+            "Numero SLRG": "SLRG221",
+            "CUFE": "302",
+            "Nombre SLRG": "Consulta Débitos para DDJJ de GC",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00073",
+            "Numero SLRG": "SLRG222",
+            "CUFE": "303",
+            "Nombre SLRG": "Consulta DDJJ ARCIBA por sujeto pasivo",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00098",
+            "Numero SLRG": "SLRG224",
+            "CUFE": "330",
+            "Nombre SLRG": "Reempadronamiento y reversa de Patentes",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00093",
+            "Numero SLRG": "SLRG225",
+            "CUFE": "WS",
+            "Nombre SLRG": "Datos de Padrón y Deuda ISIB - MECENAZGOS",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00086",
+            "Numero SLRG": "SLRG226",
+            "CUFE": "313",
+            "Nombre SLRG": "Alta de Registros-Escribanos",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00077",
+            "Numero SLRG": "SLRG227",
+            "CUFE": "304",
+            "Nombre SLRG": "Actualiza datos de Marcas",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00082",
+            "Numero SLRG": "SLRG231",
+            "CUFE": "316",
+            "Nombre SLRG": "Consulta de Registros-Escribanos",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00078",
+            "Numero SLRG": "SLRG232",
+            "CUFE": "311",
+            "Nombre SLRG": "Consulta Datos de Marcas",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00090",
+            "Numero SLRG": "SLRG233",
+            "CUFE": "317",
+            "Nombre SLRG": "Modificación de Registros-Escribanos",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00217",
+            "Numero SLRG": "SLRG234",
+            "CUFE": "504",
+            "Nombre SLRG": "Simulación de Acogimiento a Plan de Facilidades - GJ",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00081",
+            "Numero SLRG": "SLRG235",
+            "CUFE": "312",
+            "Nombre SLRG": "Actualización de alícuotas de patentes",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00084",
+            "Numero SLRG": "SLRG237",
+            "CUFE": "318",
+            "Nombre SLRG": "Baja de Registros-Escribanos",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00080",
+            "Numero SLRG": "SLRG238",
+            "CUFE": "253",
+            "Nombre SLRG": "Consulta de Alícuota y Valores de Impuestos",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00083",
+            "Numero SLRG": "SLRG239",
+            "CUFE": "315",
+            "Nombre SLRG": "Consulta de alícuotas de patentes",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00085",
+            "Numero SLRG": "SLRG241",
+            "CUFE": "321",
+            "Nombre SLRG": "Emisión de boletas a pedido por carpetas",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00102",
+            "Numero SLRG": "SLRG242",
+            "CUFE": "335",
+            "Nombre SLRG": "Consulta DDJJ Sellos",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00097",
+            "Numero SLRG": "SLRG243",
+            "CUFE": "336",
+            "Nombre SLRG": "Denuncia de ventas",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00100",
+            "Numero SLRG": "SLRG244",
+            "CUFE": "338",
+            "Nombre SLRG": "Cambio de Titularidad - RV",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00110",
+            "Numero SLRG": "SLRG245",
+            "CUFE": "354",
+            "Nombre SLRG": "Alta de DDJJ Sellos",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00099",
+            "Numero SLRG": "SLRG246",
+            "CUFE": "337",
+            "Nombre SLRG": "Alta de Débitos Manual",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00101",
+            "Numero SLRG": "SLRG247",
+            "CUFE": "339",
+            "Nombre SLRG": "Adjudicación de deuda a Gestión Judicial",
+            "Modulo": "Gestión Judicial"
+        },
+        {
+            "LOTE": "Lote 00103",
+            "Numero SLRG": "SLRG248",
+            "CUFE": "341",
+            "Nombre SLRG": "Baja Física Patentes",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00104",
+            "Numero SLRG": "SLRG249",
+            "CUFE": "342",
+            "Nombre SLRG": "Baja de Débitos Manual",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00179",
+            "Numero SLRG": "SLRG250",
+            "CUFE": "344",
+            "Nombre SLRG": "Readjudicación de Deuda a Gestión Judicial",
+            "Modulo": "Gestión Judicial"
+        },
+        {
+            "LOTE": "Lote 00119",
+            "Numero SLRG": "SLRG251",
+            "CUFE": "346",
+            "Nombre SLRG": "Adjudicación de deuda Gestión Judicial a Mandatario",
+            "Modulo": "Gestión Judicial"
+        },
+        {
+            "LOTE": "Lote 00105",
+            "Numero SLRG": "SLRG252",
+            "CUFE": "345",
+            "Nombre SLRG": "Regularización de alta provisioria RV",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00148",
+            "Numero SLRG": "SLRG253",
+            "CUFE": "369",
+            "Nombre SLRG": "Pago Contado Gestión Judicial",
+            "Modulo": "Gestión Judicial"
+        },
+        {
+            "LOTE": "Lote 00142",
+            "Numero SLRG": "SLRG254",
+            "CUFE": "368",
+            "Nombre SLRG": "Emisión de Instrumento de Pago Sellos",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00107",
+            "Numero SLRG": "SLRG255",
+            "CUFE": "348",
+            "Nombre SLRG": "Consulta de operaciones por Registro RNPA",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00115",
+            "Numero SLRG": "SLRG256",
+            "CUFE": "351",
+            "Nombre SLRG": "Consulta de las boletas emitidas por Registro RNPA",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00117",
+            "Numero SLRG": "SLRG257",
+            "CUFE": "353",
+            "Nombre SLRG": "Alta Contribuyente Unico por CUIT",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00130",
+            "Numero SLRG": "SLRG260",
+            "CUFE": "358",
+            "Nombre SLRG": "Administración Operadores del RNPA",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00146",
+            "Numero SLRG": "SLRG262",
+            "CUFE": "363",
+            "Nombre SLRG": "Reimpresión Instrumento de Pago Sellos",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00122",
+            "Numero SLRG": "SLRG263",
+            "CUFE": "365",
+            "Nombre SLRG": "IB Reg Gral - Trámite por Actualización de Sucursales ISIB",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00125",
+            "Numero SLRG": "SLRG264",
+            "CUFE": "366",
+            "Nombre SLRG": "IB Reg Gral - Impresión y re-impresión Constancia Inscripción ISIB",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00170",
+            "Numero SLRG": "SLRG265",
+            "CUFE": "404",
+            "Nombre SLRG": "Exenciones de Pisos Bajos",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00144",
+            "Numero SLRG": "SLRG266",
+            "CUFE": "380",
+            "Nombre SLRG": "Cálculo del Impuesto Sellos",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00137",
+            "Numero SLRG": "SLRG267",
+            "CUFE": "373",
+            "Nombre SLRG": "IB Reg Gral - Exclusiones sobre eventos",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00133",
+            "Numero SLRG": "SLRG268",
+            "CUFE": "377",
+            "Nombre SLRG": "Modificación DDJJ Sellos",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00132",
+            "Numero SLRG": "SLRG269",
+            "CUFE": "379",
+            "Nombre SLRG": "Baja DDJJ no cerrada Sellos",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00140",
+            "Numero SLRG": "SLRG270",
+            "CUFE": "389",
+            "Nombre SLRG": "IB Reg Gral - Consulta de Eventos",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00157",
+            "Numero SLRG": "SLRG271",
+            "CUFE": "387",
+            "Nombre SLRG": "Carga Masiva DDJJ Sellos",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00153",
+            "Numero SLRG": "SLRG272",
+            "CUFE": "399",
+            "Nombre SLRG": "IB Reg Gral - Consulta DDJJ SICOL",
+            "Modulo": "IBRG"
+        },
+        {
+            "LOTE": "Lote 00135",
+            "Numero SLRG": "SLRG273",
+            "CUFE": "381",
+            "Nombre SLRG": "Reactivación de Planes de Facilidades",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00136",
+            "Numero SLRG": "SLRG274",
+            "CUFE": "384",
+            "Nombre SLRG": "Emite Constancia de Pago de RV",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00138",
+            "Numero SLRG": "SLRG275",
+            "CUFE": "388",
+            "Nombre SLRG": "IB Reg Gral - Carga de Resoluciones saldos a favor",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00134",
+            "Numero SLRG": "SLRG276",
+            "CUFE": "383",
+            "Nombre SLRG": "Generación de constancia de trámite RV",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00147",
+            "Numero SLRG": "SLRG278",
+            "CUFE": "392",
+            "Nombre SLRG": "Visualización Logs Registros Escribanos",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00141",
+            "Numero SLRG": "SLRG279",
+            "CUFE": "390",
+            "Nombre SLRG": "Constancia de Trámite de Exención para RV",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00143",
+            "Numero SLRG": "SLRG280",
+            "CUFE": "391",
+            "Nombre SLRG": "Reversa en Padrón de Baja y Prebaja",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00145",
+            "Numero SLRG": "SLRG281",
+            "CUFE": "393",
+            "Nombre SLRG": "Consulta de valuaciones por marca RV",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00151",
+            "Numero SLRG": "SLRG282",
+            "CUFE": "401",
+            "Nombre SLRG": "Administración de Relaciones Especiales",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00150",
+            "Numero SLRG": "SLRG283",
+            "CUFE": "395",
+            "Nombre SLRG": "Visualización Logs DDJJ Sellos",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00165",
+            "Numero SLRG": "SLRG285",
+            "CUFE": "414",
+            "Nombre SLRG": "Reacivación de Planes de Facilidades Judiciales",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00156",
+            "Numero SLRG": "SLRG286",
+            "CUFE": "403",
+            "Nombre SLRG": "Consulta DDJJ Sellos por Intervinientes",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00152",
+            "Numero SLRG": "SLRG287",
+            "CUFE": "402",
+            "Nombre SLRG": "Generación de Créditos de Exención",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00166",
+            "Numero SLRG": "SLRG290",
+            "CUFE": "410",
+            "Nombre SLRG": "Determinación deuda a Concurso o Quiebra",
+            "Modulo": "Concursos y Quiebras"
+        },
+        {
+            "LOTE": "Lote 00160",
+            "Numero SLRG": "SLRG291",
+            "CUFE": "409",
+            "Nombre SLRG": "Reversa de Caducidad PF - Deuda Administrativa",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00162",
+            "Numero SLRG": "SLRG292",
+            "CUFE": "412",
+            "Nombre SLRG": "Reversa de Nulidad PF - Deuda Administrativ",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00161",
+            "Numero SLRG": "SLRG293",
+            "CUFE": "408",
+            "Nombre SLRG": "Reversa de Caducidad PF - Deuda Judicial",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00163",
+            "Numero SLRG": "SLRG294",
+            "CUFE": "416",
+            "Nombre SLRG": "Reversa de Nulidad PF - Deuda Judicial",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00168",
+            "Numero SLRG": "SLRG297",
+            "CUFE": "420",
+            "Nombre SLRG": "Impacto asiento CQ en la cuenta corriente",
+            "Modulo": "Concursos y Quiebras"
+        },
+        {
+            "LOTE": "Lote 00167",
+            "Numero SLRG": "SLRG298",
+            "CUFE": "418",
+            "Nombre SLRG": "Consulta Dominios incluidos en un Expediente",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00171",
+            "Numero SLRG": "SLRG299",
+            "CUFE": "419",
+            "Nombre SLRG": "Consulta de todos los Expedientes relacionados con un Cuit",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00176",
+            "Numero SLRG": "SLRG300",
+            "CUFE": "428",
+            "Nombre SLRG": "Alta DDJJ Sellos Mayorista",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00169",
+            "Numero SLRG": "SLRG301",
+            "CUFE": "424",
+            "Nombre SLRG": "Listado liquidacion para Gestión Judicial",
+            "Modulo": "Gestión Judicial"
+        },
+        {
+            "LOTE": "Lote 00172",
+            "Numero SLRG": "SLRG302",
+            "CUFE": "429",
+            "Nombre SLRG": "Alta depósitos judiciales",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00173",
+            "Numero SLRG": "SLRG303",
+            "CUFE": "430",
+            "Nombre SLRG": "Reversa de Alta depósitos judiciales",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00174",
+            "Numero SLRG": "SLRG304",
+            "CUFE": "434",
+            "Nombre SLRG": "Imputación Automatica de Deposito Judicial",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00175",
+            "Numero SLRG": "SLRG305",
+            "CUFE": "432",
+            "Nombre SLRG": "Emisión Boletas Exentas por Modelo/Año",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00178",
+            "Numero SLRG": "SLRG306",
+            "CUFE": "436",
+            "Nombre SLRG": "Alta de débitos especiales",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00184",
+            "Numero SLRG": "SLRG310",
+            "CUFE": "443",
+            "Nombre SLRG": "Reversa asiento CQ en Cta. Cte.",
+            "Modulo": "Concursos y Quiebras"
+        },
+        {
+            "LOTE": "Lote 00180",
+            "Numero SLRG": "SLRG311",
+            "CUFE": "440",
+            "Nombre SLRG": "Emisión instrumento de pago Honorarios PF - GJ",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00181",
+            "Numero SLRG": "SLRG312",
+            "CUFE": "439",
+            "Nombre SLRG": "Reimpresión instrumento de pago Tasa de Justicia - GJ",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00182",
+            "Numero SLRG": "SLRG315",
+            "CUFE": "445",
+            "Nombre SLRG": "Emisión Boleta de Ajustes Fiscales",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00188",
+            "Numero SLRG": "SLRG318",
+            "CUFE": "449",
+            "Nombre SLRG": "Emision de Instrumento de Pago de Gravamenes Varios",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00185",
+            "Numero SLRG": "SLRG319",
+            "CUFE": "446",
+            "Nombre SLRG": "Alta Exención ISIB",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00189",
+            "Numero SLRG": "SLRG320",
+            "CUFE": "451",
+            "Nombre SLRG": "Anulación de Planes de Facilidades Judicial",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00187",
+            "Numero SLRG": "SLRG321",
+            "CUFE": "447",
+            "Nombre SLRG": "Baja Exención ISIB",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00190",
+            "Numero SLRG": "SLRG322",
+            "CUFE": "450",
+            "Nombre SLRG": "Consulta Exención ISIB",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00191",
+            "Numero SLRG": "SLRG324",
+            "CUFE": "454",
+            "Nombre SLRG": "Consulta de Parametria Sellos",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00192",
+            "Numero SLRG": "SLRG325",
+            "CUFE": "453",
+            "Nombre SLRG": "Condonación de Deuda",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00194",
+            "Numero SLRG": "SLRG326",
+            "CUFE": "467",
+            "Nombre SLRG": "Consulta Estadistica de operaciones de Sellos",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00195",
+            "Numero SLRG": "SLRG328",
+            "CUFE": "468",
+            "Nombre SLRG": "Emisión Instrumento de Pagos Sellos por carpeta",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00199",
+            "Numero SLRG": "SLRG329",
+            "CUFE": "465",
+            "Nombre SLRG": "Administracion de Tramos de Titularidad ABL",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00200",
+            "Numero SLRG": "SLRG331",
+            "CUFE": "469",
+            "Nombre SLRG": "Consulta de Padrón ABL",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00196",
+            "Numero SLRG": "SLRG332",
+            "CUFE": "462",
+            "Nombre SLRG": "Alta expediente de exencion por objeto(ABL)",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00344",
+            "Numero SLRG": "SLRG332",
+            "CUFE": "638",
+            "Nombre SLRG": "Solicitud de migrar transferencia ISIB",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00197",
+            "Numero SLRG": "SLRG334",
+            "CUFE": "463",
+            "Nombre SLRG": "Constancia de Exención Jubilados y/o Pensionados",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00193",
+            "Numero SLRG": "SLRG336",
+            "CUFE": "466",
+            "Nombre SLRG": "Consulta por Identificador de la Deuda Condonada",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00207",
+            "Numero SLRG": "SLRG337",
+            "CUFE": "482",
+            "Nombre SLRG": "Re impresion Titulo Ejecutivo Concursos y Quiebras",
+            "Modulo": "Concursos y Quiebras"
+        },
+        {
+            "LOTE": "Lote 00201",
+            "Numero SLRG": "SLRG338",
+            "CUFE": "472",
+            "Nombre SLRG": "Administración de Relaciones Especiales ABL",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00203",
+            "Numero SLRG": "SLRG339",
+            "CUFE": "481",
+            "Nombre SLRG": "Alta DDJJ Sellos Agente Recaudaciones",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00198",
+            "Numero SLRG": "SLRG340",
+            "CUFE": "470",
+            "Nombre SLRG": "Baja de Créditos de Exención",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00205",
+            "Numero SLRG": "SLRG341",
+            "CUFE": "474",
+            "Nombre SLRG": "Alta de Exenciones por Impuesto-Identificador ABL",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00206",
+            "Numero SLRG": "SLRG342",
+            "CUFE": "473",
+            "Nombre SLRG": "Consulta de Partida incluida en un expediente",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00204",
+            "Numero SLRG": "SLRG344",
+            "CUFE": "477",
+            "Nombre SLRG": "Baja de Debito Especial",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00208",
+            "Numero SLRG": "SLRG345",
+            "CUFE": "483",
+            "Nombre SLRG": "Adhesion a 'Boleta Electrónica'",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00222",
+            "Numero SLRG": "SLRG347",
+            "CUFE": "508",
+            "Nombre SLRG": "Reversa de Imputación Depósitos Judiciales",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00213",
+            "Numero SLRG": "SLRG352",
+            "CUFE": "502",
+            "Nombre SLRG": "Modificación de datos de Adjudicación",
+            "Modulo": "Gestión Judicial"
+        },
+        {
+            "LOTE": "Lote 00223",
+            "Numero SLRG": "SLRG353",
+            "CUFE": "505",
+            "Nombre SLRG": "Consulta al Padrón de Gestión Judicial",
+            "Modulo": "Gestión Judicial"
+        },
+        {
+            "LOTE": "Lote 00216",
+            "Numero SLRG": "SLRG354",
+            "CUFE": "501",
+            "Nombre SLRG": "Generacion de saldos a favor por pago de cuota anual",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00214",
+            "Numero SLRG": "SLRG356",
+            "CUFE": "WS",
+            "Nombre SLRG": "Web Service Colegio de Escribanos",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00220",
+            "Numero SLRG": "SLRG357",
+            "CUFE": "507",
+            "Nombre SLRG": "Alta de DDJJ Bolsa de Comercio",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00218",
+            "Numero SLRG": "SLRG358",
+            "CUFE": "WS",
+            "Nombre SLRG": "Web Service Colegio Escribanos Pagos",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00272",
+            "Numero SLRG": "SLRG361",
+            "CUFE": "564",
+            "Nombre SLRG": "Alta de Débito en forma manual",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00227",
+            "Numero SLRG": "SLRG362",
+            "CUFE": "227",
+            "Nombre SLRG": "Constancia de Pago Sellos",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00224",
+            "Numero SLRG": "SLRG363",
+            "CUFE": "509",
+            "Nombre SLRG": "Consulta de tramites x filtros varios",
+            "Modulo": "Contribuyente Unico"
+        },
+        {
+            "LOTE": "Lote 00221",
+            "Numero SLRG": "SLRG364",
+            "CUFE": "WS",
+            "Nombre SLRG": "WS-JUZCABA-GIT",
+            "Modulo": "Gestión Judicial"
+        },
+        {
+            "LOTE": "Lote 00225",
+            "Numero SLRG": "SLRG365",
+            "CUFE": "510",
+            "Nombre SLRG": "Consulta de cálculo impuesto ABL",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00232",
+            "Numero SLRG": "SLRG366",
+            "CUFE": "512",
+            "Nombre SLRG": "Consulta DDJJ SIFERE",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00228",
+            "Numero SLRG": "SLRG367",
+            "CUFE": "514",
+            "Nombre SLRG": "Reversa del Alta de una Exención",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00226",
+            "Numero SLRG": "SLRG368",
+            "CUFE": "513",
+            "Nombre SLRG": "Alta Relacion Cuit - Banco - Entidad",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00231",
+            "Numero SLRG": "SLRG371",
+            "CUFE": "515",
+            "Nombre SLRG": "Web Bolsa de Comercio",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00306",
+            "Numero SLRG": "SLRG373",
+            "CUFE": "600",
+            "Nombre SLRG": "Reversa de denuncia de venta RV",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00230",
+            "Numero SLRG": "SLRG374",
+            "CUFE": "517",
+            "Nombre SLRG": "Reversa de la Baja de una Exención",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00350",
+            "Numero SLRG": "SLRG375",
+            "CUFE": "644",
+            "Nombre SLRG": "Reversa de cambio de titularidad de Patentes",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00234",
+            "Numero SLRG": "SLRG376",
+            "CUFE": "519",
+            "Nombre SLRG": "Consulta DDJJ Anual SIFERE",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00233",
+            "Numero SLRG": "SLRG378",
+            "CUFE": "518",
+            "Nombre SLRG": "Reemplazo de CUIT",
+            "Modulo": "Contribuyente Unico"
+        },
+        {
+            "LOTE": "Lote 00237",
+            "Numero SLRG": "SLRG379",
+            "CUFE": "520",
+            "Nombre SLRG": "RV - Homologación de marcas",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00246",
+            "Numero SLRG": "SLRG382",
+            "CUFE": "522",
+            "Nombre SLRG": "Consulta al padron de anuncios",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00247",
+            "Numero SLRG": "SLRG383",
+            "CUFE": "544",
+            "Nombre SLRG": "Modificacion de anuncios",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00248",
+            "Numero SLRG": "SLRG385",
+            "CUFE": "525",
+            "Nombre SLRG": "Consulta generica de anuncios publicitarios",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00249",
+            "Numero SLRG": "SLRG386",
+            "CUFE": "543",
+            "Nombre SLRG": "BAJA DE Anuncios Publicitarios",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00250",
+            "Numero SLRG": "SLRG387",
+            "CUFE": "545",
+            "Nombre SLRG": "Reversa de Baja de Anuncios",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00251",
+            "Numero SLRG": "SLRG388",
+            "CUFE": "533",
+            "Nombre SLRG": "Emision de Constancia de pago de Anuncios",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00271",
+            "Numero SLRG": "SLRG390",
+            "CUFE": "550",
+            "Nombre SLRG": "Baja de Debitos AP",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00252",
+            "Numero SLRG": "SLRG391",
+            "CUFE": "531",
+            "Nombre SLRG": "ABM tarifaria de anuncios",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00241",
+            "Numero SLRG": "SLRG392",
+            "CUFE": "529",
+            "Nombre SLRG": "Consulta periodo en custodia",
+            "Modulo": "Concursos y Quiebras"
+        },
+        {
+            "LOTE": "Lote 00238",
+            "Numero SLRG": "SLRG393",
+            "CUFE": "521",
+            "Nombre SLRG": "Control de Deuda ISIB",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00253",
+            "Numero SLRG": "SLRG394",
+            "CUFE": "532",
+            "Nombre SLRG": "Consulta de Tarifaria de Anuncios Publicitarios",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00239",
+            "Numero SLRG": "SLRG395",
+            "CUFE": "524",
+            "Nombre SLRG": "Consulta de Habilitacion Cobros",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00258",
+            "Numero SLRG": "SLRG398",
+            "CUFE": "551",
+            "Nombre SLRG": "Modificar la CUIT generica o por error",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00255",
+            "Numero SLRG": "SLRG401",
+            "CUFE": "552",
+            "Nombre SLRG": "Emision de constancia de tramite para anuncios publicitarios",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00242",
+            "Numero SLRG": "SLRG402",
+            "CUFE": "534",
+            "Nombre SLRG": "Alta de Excepción de Prescripción",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00256",
+            "Numero SLRG": "SLRG403",
+            "CUFE": "538",
+            "Nombre SLRG": "Reversa de Excepción de Prescripción",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00243",
+            "Numero SLRG": "SLRG405",
+            "CUFE": "535",
+            "Nombre SLRG": "Alta DDJJ Sellos Oficio por Fiscalizacion",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00245",
+            "Numero SLRG": "SLRG407",
+            "CUFE": "542",
+            "Nombre SLRG": "Web Alta de ddjj de Escribanos de Pcia",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00244",
+            "Numero SLRG": "SLRG408",
+            "CUFE": "536",
+            "Nombre SLRG": "Reimputación de planes cancelados",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00293",
+            "Numero SLRG": "SLRG411",
+            "CUFE": "559",
+            "Nombre SLRG": "Compra Bienes en Subasta",
+            "Modulo": "Concursos y Quiebras"
+        },
+        {
+            "LOTE": "Lote 00254",
+            "Numero SLRG": "SLRG412",
+            "CUFE": "548",
+            "Nombre SLRG": "Consulta de timbrados",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00240",
+            "Numero SLRG": "SLRG416",
+            "CUFE": "523",
+            "Nombre SLRG": "Alta de Anuncios Publiciario",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00260",
+            "Numero SLRG": "SLRG417",
+            "CUFE": "555",
+            "Nombre SLRG": "Generación Masiva de Débitos ISIB por Falta de Presentación",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00257",
+            "Numero SLRG": "SLRG419",
+            "CUFE": "554",
+            "Nombre SLRG": "Consulta Recaudación por Cuenta-Banco",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00259",
+            "Numero SLRG": "SLRG420",
+            "CUFE": "553",
+            "Nombre SLRG": "Consulta de certificados GC- AP",
+            "Modulo": "Grandes Contribuyentes"
+        },
+        {
+            "LOTE": "Lote 00261",
+            "Numero SLRG": "SLRG421",
+            "CUFE": "556",
+            "Nombre SLRG": "Alta DDJJ Martilleros WEB",
+            "Modulo": "Sellos"
+        },
+        {
+            "LOTE": "Lote 00264",
+            "Numero SLRG": "SLRG425",
+            "CUFE": "558",
+            "Nombre SLRG": "Consulta parametría Gravámenes Varios",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00267",
+            "Numero SLRG": "SLRG427",
+            "CUFE": "560",
+            "Nombre SLRG": "Alta Masiva Determinación de Oficio ISIB",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00362",
+            "Numero SLRG": "SLRG428",
+            "CUFE": "655",
+            "Nombre SLRG": "Alta de certificados SARAP",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00266",
+            "Numero SLRG": "SLRG429",
+            "CUFE": "WS",
+            "Nombre SLRG": "Baja definitiva de Patentes",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00270",
+            "Numero SLRG": "SLRG430",
+            "CUFE": "563",
+            "Nombre SLRG": "Consulta de Items Liquidables GV",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00278",
+            "Numero SLRG": "SLRG431",
+            "CUFE": "567",
+            "Nombre SLRG": "Actualización Items Liquidables",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00269",
+            "Numero SLRG": "SLRG432",
+            "CUFE": "561",
+            "Nombre SLRG": "Consulta de Permisos de Gravámenes",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00268",
+            "Numero SLRG": "SLRG433",
+            "CUFE": "562",
+            "Nombre SLRG": "Alta domicilios fiscales especiales",
+            "Modulo": "Contribuyente Unico"
+        },
+        {
+            "LOTE": "Lote 00273",
+            "Numero SLRG": "SLRG434",
+            "CUFE": "565",
+            "Nombre SLRG": "Precarga complemento DDJJ",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00276",
+            "Numero SLRG": "SLRG435",
+            "CUFE": "569",
+            "Nombre SLRG": "Alta de Permisos Vía Publica Gravámenes Varios",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00274",
+            "Numero SLRG": "SLRG436",
+            "CUFE": "566",
+            "Nombre SLRG": "Baja de Debitos Manual ABL",
+            "Modulo": "abl"
+        },
+        {
+            "LOTE": "Lote 00275",
+            "Numero SLRG": "SLRG438",
+            "CUFE": "568",
+            "Nombre SLRG": "Modificación de Permisos Vía Pública",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00277",
+            "Numero SLRG": "SLRG439",
+            "CUFE": "573",
+            "Nombre SLRG": "Consulta Base DDJJ pendientes Impacto",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00280",
+            "Numero SLRG": "SLRG440",
+            "CUFE": "576",
+            "Nombre SLRG": "Consulta de deuda enviada pago sin boleta",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00279",
+            "Numero SLRG": "SLRG441",
+            "CUFE": "575",
+            "Nombre SLRG": "GV Administracion de Ferias",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00287",
+            "Numero SLRG": "SLRG442",
+            "CUFE": "579",
+            "Nombre SLRG": "Baja Fisica de Permisos Gravamenes Varios",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00285",
+            "Numero SLRG": "SLRG443",
+            "CUFE": "582",
+            "Nombre SLRG": "Administracion Calendario Riesgo Fiscal",
+            "Modulo": "Riesgo Fiscal"
+        },
+        {
+            "LOTE": "Lote 00289",
+            "Numero SLRG": "SLRG444",
+            "CUFE": "585",
+            "Nombre SLRG": "Administracion motivos de inclusion y exclusión para RF",
+            "Modulo": "Riesgo Fiscal"
+        },
+        {
+            "LOTE": "Lote 00292",
+            "Numero SLRG": "SLRG445",
+            "CUFE": "587",
+            "Nombre SLRG": "Baja Lógica de Permisos Gravámenes Varios",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00281",
+            "Numero SLRG": "SLRG446",
+            "CUFE": "577",
+            "Nombre SLRG": "Conversión Saldos GIDA en Saldos Imputables",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00283",
+            "Numero SLRG": "SLRG447",
+            "CUFE": "580",
+            "Nombre SLRG": "Baja física de ítems",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00282",
+            "Numero SLRG": "SLRG448",
+            "CUFE": "578",
+            "Nombre SLRG": "Emite Constancia de Pago ABL",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00286",
+            "Numero SLRG": "SLRG453",
+            "CUFE": "584",
+            "Nombre SLRG": "Consulta Padrón Riesgo Fiscal",
+            "Modulo": "Riesgo Fiscal"
+        },
+        {
+            "LOTE": "Lote 00290",
+            "Numero SLRG": "SLRG454",
+            "CUFE": "586",
+            "Nombre SLRG": "Calculo Automatico de Debitos",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00288",
+            "Numero SLRG": "SLRG455",
+            "CUFE": "583",
+            "Nombre SLRG": "Emisión Boleta Tasa Retributiva",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00291",
+            "Numero SLRG": "SLRG459",
+            "CUFE": "588",
+            "Nombre SLRG": "Reimputación de planes cancelados de Gestión Judicial",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00294",
+            "Numero SLRG": "SLRG460",
+            "CUFE": "589",
+            "Nombre SLRG": "Constancia de Pagos",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00295",
+            "Numero SLRG": "SLRG461",
+            "CUFE": "590",
+            "Nombre SLRG": "Visualizacion Log de Permisos",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00307",
+            "Numero SLRG": "SLRG462",
+            "CUFE": "WS",
+            "Nombre SLRG": "WS Baja de Anuncios",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00298",
+            "Numero SLRG": "SLRG464",
+            "CUFE": "591",
+            "Nombre SLRG": "Consulta Valuaciónes por empresa",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00301",
+            "Numero SLRG": "SLRG465",
+            "CUFE": "596",
+            "Nombre SLRG": "Alta de Permisos de Vallas en Via Publica",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00297",
+            "Numero SLRG": "SLRG467",
+            "CUFE": "592",
+            "Nombre SLRG": "Modificación Expediente Exención por Objeto",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00303",
+            "Numero SLRG": "SLRG469",
+            "CUFE": "593",
+            "Nombre SLRG": "Administrar Domicilios Especiales por Impuesto-Id",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00296",
+            "Numero SLRG": "SLRG470",
+            "CUFE": "Ws",
+            "Nombre SLRG": "Invocación Batch de Alta de débitos de Patentes",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00305",
+            "Numero SLRG": "SLRG471",
+            "CUFE": "599",
+            "Nombre SLRG": "Baja Fisica de Permisos de Vallas",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00300",
+            "Numero SLRG": "SLRG472",
+            "CUFE": "597",
+            "Nombre SLRG": "Imputación Especial de Pagos Pendientes",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00304",
+            "Numero SLRG": "SLRG473",
+            "CUFE": "598",
+            "Nombre SLRG": "Consulta Evolución Padrón",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00299",
+            "Numero SLRG": "SLRG477",
+            "CUFE": "595",
+            "Nombre SLRG": "Constancia de Deuda Extendida",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00302",
+            "Numero SLRG": "SLRG479",
+            "CUFE": "603",
+            "Nombre SLRG": "Sistema de Pago Unificado para Organismos Oficiales",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00324",
+            "Numero SLRG": "SLRG480",
+            "CUFE": "602",
+            "Nombre SLRG": "Emisión de boletas GV - Vía Publica",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00309",
+            "Numero SLRG": "SLRG481",
+            "CUFE": "604",
+            "Nombre SLRG": "Consulta de detalle de boleta - Pago Unificado",
+            "Modulo": "abl"
+        },
+        {
+            "LOTE": "Lote 00308",
+            "Numero SLRG": "SLRG482",
+            "CUFE": "601",
+            "Nombre SLRG": "Administrar Padron Riesgo Fiscal",
+            "Modulo": "Riesgo Fiscal"
+        },
+        {
+            "LOTE": "Lote 00312",
+            "Numero SLRG": "SLRG483",
+            "CUFE": "605",
+            "Nombre SLRG": "Modificación Permisos Vallas",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00314",
+            "Numero SLRG": "SLRG484",
+            "CUFE": "610",
+            "Nombre SLRG": "Extension de Permiso de Vallas",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00318",
+            "Numero SLRG": "SLRG485",
+            "CUFE": "616",
+            "Nombre SLRG": "Alta de nombre de calles y tramos",
+            "Modulo": "Contribuyente Unico"
+        },
+        {
+            "LOTE": "Lote 00310",
+            "Numero SLRG": "SLRG486",
+            "CUFE": "606",
+            "Nombre SLRG": "Emisión de DDJJ Vallas",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00319",
+            "Numero SLRG": "SLRG489",
+            "CUFE": "614",
+            "Nombre SLRG": "Aprobación de evento",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00311",
+            "Numero SLRG": "SLRG490",
+            "CUFE": "608",
+            "Nombre SLRG": "Reimputación de los Planes Vigentes",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00315",
+            "Numero SLRG": "SLRG491",
+            "CUFE": "613",
+            "Nombre SLRG": "Constancia de Tramite de Exención para ABL",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00313",
+            "Numero SLRG": "SLRG492",
+            "CUFE": "609",
+            "Nombre SLRG": "Baja de adhesión a débito directo por CBU",
+            "Modulo": "Recaudaciones",
+            "undefined": " "
+        },
+        {
+            "LOTE": "Lote 00317",
+            "Numero SLRG": "SLRG493",
+            "CUFE": "615",
+            "Nombre SLRG": "Anulación de planes vigentes de Gestión Judicial",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00316",
+            "Numero SLRG": "SLRG494",
+            "CUFE": "611",
+            "Nombre SLRG": "Consulta deuda de Avaluó",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00323",
+            "Numero SLRG": "SLRG495",
+            "CUFE": "618",
+            "Nombre SLRG": "Emisión de Boleta ABL para Exención",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00320",
+            "Numero SLRG": "SLRG499",
+            "CUFE": "Ws",
+            "Nombre SLRG": "WS-Generación de créditos de exención",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00326",
+            "Numero SLRG": "SLRG500",
+            "CUFE": "621",
+            "Nombre SLRG": "Consulta de Trámites de Anuncios Publicitarios",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00321",
+            "Numero SLRG": "SLRG501",
+            "CUFE": "617",
+            "Nombre SLRG": "Análisis de Cuenta ISIB",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00329",
+            "Numero SLRG": "SLRG502",
+            "CUFE": "622",
+            "Nombre SLRG": "Emisión Boleta por carpeta Gravámenes Varios",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00322",
+            "Numero SLRG": "SLRG503",
+            "CUFE": "619",
+            "Nombre SLRG": "Reemplazo de Cuit Generico Exento",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00325",
+            "Numero SLRG": "SLRG504",
+            "CUFE": "620",
+            "Nombre SLRG": "Visualización de log de Items GV",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00328",
+            "Numero SLRG": "SLRG505",
+            "CUFE": "623",
+            "Nombre SLRG": "Consultas Condonaciones",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00327",
+            "Numero SLRG": "SLRG506",
+            "CUFE": "SWS003",
+            "Nombre SLRG": "Obtener la deuda para Planes de facilidades",
+            "Modulo": "Plan de Facilidades"
+        },
+        {
+            "LOTE": "Lote 00330",
+            "Numero SLRG": "SLRG509",
+            "CUFE": "624",
+            "Nombre SLRG": "Reasignación de Saldos a Favor",
+            "Modulo": "Recaudaciones"
+        },
+        {
+            "LOTE": "Lote 00331",
+            "Numero SLRG": "SLRG510",
+            "CUFE": "625",
+            "Nombre SLRG": "Consulta de Ferias por Permiso",
+            "Modulo": "Gravamenes Varios"
+        },
+        {
+            "LOTE": "Lote 00336",
+            "Numero SLRG": "SLRG511",
+            "CUFE": "630",
+            "Nombre SLRG": "Reversa Condonación - Confusión",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00333",
+            "Numero SLRG": "SLRG512",
+            "CUFE": "626",
+            "Nombre SLRG": "Solicitud de Embargo",
+            "Modulo": "Sistema de Oficios Judiciales"
+        },
+        {
+            "LOTE": "Lote 00332",
+            "Numero SLRG": "SLRG513",
+            "CUFE": "627",
+            "Nombre SLRG": "Autorización de Embargo",
+            "Modulo": "Sistema de Oficios Judiciales"
+        },
+        {
+            "LOTE": "Lote 00337",
+            "Numero SLRG": "SLRG514",
+            "CUFE": "631",
+            "Nombre SLRG": "Solicitud Transferencia Fondos",
+            "Modulo": "Sistema de Oficios Judiciales"
+        },
+        {
+            "LOTE": "Lote 00343",
+            "Numero SLRG": "SLRG515",
+            "CUFE": "636",
+            "Nombre SLRG": "Consulta e Impresión de Oficios Judiciales",
+            "Modulo": "Sistema de Oficios Judiciales"
+        },
+        {
+            "LOTE": "Lote 00334",
+            "Numero SLRG": "SLRG516",
+            "CUFE": "628",
+            "Nombre SLRG": "Solicitud de levantamiento de Embargo",
+            "Modulo": "Sistema de Oficios Judiciales"
+        },
+        {
+            "LOTE": "Lote 00338",
+            "Numero SLRG": "SLRG517",
+            "CUFE": "632",
+            "Nombre SLRG": "Autorización de Transferencia de Fondos",
+            "Modulo": "Sistema de Oficios Judiciales"
+        },
+        {
+            "LOTE": "Lote 00341",
+            "Numero SLRG": "SLRG518",
+            "CUFE": "635",
+            "Nombre SLRG": "Consulta de Fondos Inmovilizados",
+            "Modulo": "Sistema de Oficios Judiciales"
+        },
+        {
+            "LOTE": "Lote 00335",
+            "Numero SLRG": "SLRG519",
+            "CUFE": "629",
+            "Nombre SLRG": "Autorización de Levantamiento de Embargo",
+            "Modulo": "Sistema de Oficios Judiciales"
+        },
+        {
+            "LOTE": "Lote 00342",
+            "Numero SLRG": "SLRG520",
+            "CUFE": "SWS6",
+            "Nombre SLRG": "Webservice para Altas de Anuncios",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00342",
+            "Numero SLRG": "SLRG520",
+            "CUFE": "SWS006",
+            "Nombre SLRG": "webservice para Altas de Anuncios",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00339",
+            "Numero SLRG": "SLRG521",
+            "CUFE": "633",
+            "Nombre SLRG": "Reversa de Autorización de Transferencia de Fondos",
+            "Modulo": "Sistema de Oficios Judiciales"
+        },
+        {
+            "LOTE": "Lote 00340",
+            "Numero SLRG": "SLRG522",
+            "CUFE": "634",
+            "Nombre SLRG": "Emisión de Boleta RV para Exención",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00361",
+            "Numero SLRG": "SLRG523",
+            "CUFE": "654",
+            "Nombre SLRG": "DDJJ Agentes SARAP",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00345",
+            "Numero SLRG": "SLRG525",
+            "CUFE": "639",
+            "Nombre SLRG": "Generación de Demandas GJ",
+            "Modulo": "Gestión Judicial"
+        },
+        {
+            "LOTE": "Lote 00346",
+            "Numero SLRG": "SLRG526",
+            "CUFE": "640",
+            "Nombre SLRG": "Generación de Titulos Ejecutivos GJ",
+            "Modulo": "Gestión Judicial"
+        },
+        {
+            "LOTE": "Lote 00349",
+            "Numero SLRG": "SLRG530",
+            "CUFE": "643",
+            "Nombre SLRG": "Regeneración fecha de vto cuota ajuste 91",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote00355",
+            "Numero SLRG": "SLRG536",
+            "CUFE": "650",
+            "Nombre SLRG": "Generación de Créditos de Exención para todo el año",
+            "Modulo": "Exenciones"
+        },
+        {
+            "LOTE": "Lote 00351",
+            "Numero SLRG": "SLRG537",
+            "CUFE": "646",
+            "Nombre SLRG": "Actualización de Datos del Consejo de la Magistratura",
+            "Modulo": "Sistema de Oficios Judiciales"
+        },
+        {
+            "LOTE": "Lote 00352",
+            "Numero SLRG": "SLRG538",
+            "CUFE": "647",
+            "Nombre SLRG": "Control de Deuda AR-ISIB (constancia)",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00358",
+            "Numero SLRG": "SLRG542",
+            "CUFE": "652",
+            "Nombre SLRG": "Masa Concursal",
+            "Modulo": "Concursos y Quiebras"
+        },
+        {
+            "LOTE": "Lote 00359",
+            "Numero SLRG": "SLRG547",
+            "CUFE": "WS",
+            "Nombre SLRG": "RV - Invocación batch de constancia de deuda WS",
+            "Modulo": "Patentes"
+        },
+        {
+            "LOTE": "Lote 00360",
+            "Numero SLRG": "SLRG551",
+            "CUFE": "653",
+            "Nombre SLRG": "Habilita para Reimpresion Cuota Resumen",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00364",
+            "Numero SLRG": "SLRG553",
+            "CUFE": "657",
+            "Nombre SLRG": "Anulación de certificados de SARAP",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00363",
+            "Numero SLRG": "SLRG554",
+            "CUFE": "656",
+            "Nombre SLRG": "Alta de Débitos Especiales ABL",
+            "Modulo": "ABL"
+        },
+        {
+            "LOTE": "Lote 00365",
+            "Numero SLRG": "SLRG555",
+            "CUFE": "658",
+            "Nombre SLRG": "Consulta Agentes con Defraudacion o Penal Tributario",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00370",
+            "Numero SLRG": "SLRG556",
+            "CUFE": "665",
+            "Nombre SLRG": "Alta de Pedido de Generación de Coeficientes",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00368",
+            "Numero SLRG": "SLRG557",
+            "CUFE": "661",
+            "Nombre SLRG": "Consulta de Tasas de Actualizacion de Coef,",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00366",
+            "Numero SLRG": "SLRG558",
+            "CUFE": "659",
+            "Nombre SLRG": "Alta de  tasas de Actualizacion de Coeficientes ",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00367",
+            "Numero SLRG": "SLRG559 ",
+            "CUFE": "660",
+            "Nombre SLRG": "Modificacion de Tasas de Actualizacion de Coeficientes",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00369",
+            "Numero SLRG": "SLRG563",
+            "CUFE": "662",
+            "Nombre SLRG": "Consulta de Log de tasas de Actualizacion de Coeficientes",
+            "Modulo": "Cuenta Corriente",
+            "Comentarios": "Se perdio la SLRG Original 409"
+        },
+        {
+            "LOTE": "Lote 00353",
+            "Numero SLRG": "SLRG564",
+            "CUFE": "645",
+            "Nombre SLRG": "Alta Agentes de Retencion AP",
+            "Modulo": "Agentes Modulo Anuncios Publicitarios (SARAP) ",
+            "Comentarios": "Se perdio la SLRG Original 543"
+        },
+        {
+            "LOTE": "Lote 00356",
+            "Numero SLRG": "SLRG565",
+            "CUFE": "651",
+            "Nombre SLRG": "Altas y bajas de normas para AG-SARAP",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00374",
+            "Numero SLRG": "SLRG566",
+            "CUFE": "668",
+            "Nombre SLRG": "Consulta de certificados de un agente",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00376",
+            "Numero SLRG": "SLRG567",
+            "CUFE": "669",
+            "Nombre SLRG": "Aprobacion de  Actualizacion de Coeficientes",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00373",
+            "Numero SLRG": "SLRG568",
+            "CUFE": "667",
+            "Nombre SLRG": "Consulta y Emision de DDJJ Agentes SARAP",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00371",
+            "Numero SLRG": "SLRG569",
+            "CUFE": "664",
+            "Nombre SLRG": "Consulta tablas temporales para Coeficientes",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00372",
+            "Numero SLRG": "SLRG570",
+            "CUFE": "666",
+            "Nombre SLRG": "Consulta de Domicilios AFIP",
+            "Modulo": "Gestión Judicial"
+        },
+        {
+            "LOTE": "Lote 00381",
+            "Numero SLRG": "SLRG573",
+            "CUFE": "674",
+            "Nombre SLRG": "Alta de multas",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00382",
+            "Numero SLRG": "SLRG574",
+            "CUFE": "675",
+            "Nombre SLRG": "Emisión Boleta de Multa",
+            "Modulo": "ISIB"
+        },
+        {
+            "LOTE": "Lote 00377",
+            "Numero SLRG": "SLRG575",
+            "CUFE": "670",
+            "Nombre SLRG": "Consulta de Reversas y Desistimientos de Juicios",
+            "Modulo": "GICE-GIDA -Mantenimiento-"
+        },
+        {
+            "LOTE": "Lote 00379",
+            "Numero SLRG": "SLRG577",
+            "CUFE": "672",
+            "Nombre SLRG": "transferencia de certificado de un contribuyente a otro contribuyente",
+            "Modulo": "Anuncios Publicitarios"
+        },
+        {
+            "LOTE": "Lote 00378",
+            "Numero SLRG": "SLRG578",
+            "CUFE": "671",
+            "Nombre SLRG": "Consulta los Desistimientos de Juicio (GIDA)",
+            "Modulo": "GICE-GIDA -Mantenimiento-"
+        },
+        {
+            "LOTE": "Lote 00384",
+            "Numero SLRG": "SLRG580",
+            "CUFE": "676",
+            "Nombre SLRG": "Relación Altas-Bajas Manzanas",
+            "Modulo": "GICE-GIDA -Mantenimiento-"
+        },
+        {
+            "LOTE": "Lote 00383",
+            "Numero SLRG": "SLRG582",
+            "Nombre SLRG": "Novedades de partida Matriz",
+            "Modulo": "GICE-GIDA -Mantenimiento-"
+        },
+        {
+            "LOTE": "Lote 00385",
+            "Numero SLRG": "SLRG562",
+            "CUFE": "678",
+            "Nombre SLRG": "Consulta de Log de Periodos de Coeficientes ",
+            "Modulo": "Cuenta Corriente"
+        },
+        {
+            "LOTE": "Lote 00386",
+            "Numero SLRG": "SLRG591",
+            "CUFE": "679",
+            "Nombre SLRG": "Administrar Padron Provisorio SIRCREB",
+            "Modulo": "ISIB"
+        }
+    ]
+}
