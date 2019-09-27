@@ -13,10 +13,12 @@ class InscripcionController
     }
 
     function inscribirAlumno($nombreAlumno, $apellidoAlumno, $emailAlumno, $nombreMateria, $codigoMateria) {
-        $materiaObtenida = $this->materiasDao->obtenerPorId("codigo", $codigoMateria);
-        $alumnoObtenido = $this->alumnosDao->obtenerPorId("email", $emailAlumno);
-        $alumnoYaInscripto =  $this->inscripcionesDao->getByAttributeCaseInsensitive("emailAlumno", $emailAlumno);
-        if(!is_null($materiaObtenida) && $materiaObtenida->cupo > 0 && !is_null($alumnoObtenido) && is_null($alumnoYaInscripto)){
+        //Valido que la materia exista
+        $materiaObtenida = $this->materiasDao->getAttributeByKeyCaseInsensitive("codigo", $codigoMateria);
+        //Valido que el alumno exista
+        $alumnoObtenido = $this->alumnosDao->getAttributeByKeyCaseInsensitive("email", $emailAlumno);
+        $alumnoYaInscripto =  $this->inscripcionesDao->getAttributeByKeyCaseInsensitive("codigoMateria", $codigoMateria);
+        if($materiaObtenida->codigo == $codigoMateria && $materiaObtenida->cupo > 0 && $alumnoObtenido->email == $emailAlumno && is_null($alumnoYaInscripto)){
             $inscripcion = new Inscripcion($nombreAlumno, $apellidoAlumno, $emailAlumno, $nombreMateria, $codigoMateria);
             $rta = $this->inscripcionesDao->guardar($inscripcion);
             if ($rta === true) {

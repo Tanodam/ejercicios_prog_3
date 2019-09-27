@@ -11,9 +11,9 @@ class MateriaController
 
     function cargarMateria($nombre, $codigo, $cupo, $aula) {                           
         $materia = new Materia($nombre, $codigo, $cupo, $aula);
-        $materiaExistente = $this->materiasDao->getByAttributeCaseInsensitive("codigo", $codigo);
-        $rta = $this->materiasDao->guardar($materia);
-        if ($rta === true && $materiaExistente === null) {
+        $materiaExistente = $this->materiasDao->getAttributeByKeyCaseInsensitive("codigo", $codigo);
+        if (is_null($materiaExistente)) {
+            $this->materiasDao->guardar($materia);
             echo 'Se cargo la materia ' . $materia->nombre;
         } else {
             echo 'Hubo un error al guardar';

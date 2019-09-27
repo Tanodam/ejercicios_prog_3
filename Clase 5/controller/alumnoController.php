@@ -11,16 +11,17 @@ class AlumnoController
 
     function cargarAlumno($nombre, $apellido, $email, $foto)
     {
-        if ($this->isImage($foto) && $this->tamanoValidoEnMb($foto, 2)) {
+        //Valido que el objeto no existe en el objeto   
+        $alumnoExistente = $this->alumnosDao->getAttributeByKeyCaseInsensitive("email", $email);
+        if ($this->isImage($foto) && $this->tamanoValidoEnMb($foto, 2) && is_null($alumnoExistente)) {
             $tmpName = $foto["tmp_name"];
             $extension = pathinfo($foto["name"], PATHINFO_EXTENSION);
             $filename = "./imagenes/" . $email . "." . $extension;
             $rta = move_uploaded_file($tmpName, $filename);
             if ($rta === true) {
                 $alumno = new Alumno($nombre, $apellido, $email, $filename);
-                $alumnoExistente = $this->alumnosDao->getByAttributeCaseInsensitive("email", $email);
                 $rta = $this->alumnosDao->guardar($alumno);
-                if ($rta === true && $alumnoExistente === null) {
+                if ($rta === true) {
                     echo 'Se cargo el alumno ' . $alumno->nombre . " " . $alumno->apellido;
                 } else {
                     echo 'Hubo un error al guardar';
@@ -29,18 +30,22 @@ class AlumnoController
                 echo 'Hubo un error con la fotos';
             }
         }
+        else{
+            echo "No se puede cargar el alumno";
+        }
     }
 
     function consultarAlumno($apellido)
     {
-        return $this->alumnosDao->getByAttributeCaseInsensitive("apellido", $apellido);
+        return $this->alumnosDao->getAttributeByKeyCaseInsensitive("apellido", $apellido);
     }
 
     function modificarAlumno($email, $POST, $FILES)
     {
-        $alumnoAModificar = $this->alumnosDao->obtenerPorId("email", $email);
-        // var_dump($FILES);
-        // var_dump($alumnoAModificar->foto);
+        $alumnoAModificar = $this->alumnosDao->getAttributeByKeyCaseInsensitive("email", $email);
+        //  var_dump($FILES);
+          var_dump($POST);
+          //var_dump($alumnoAModificar);
         if (!is_null($alumnoAModificar)) {
 
             //IMAGEN
@@ -69,7 +74,7 @@ class AlumnoController
             // )
 
             //NOMBRE
-            if (array_key_exists("nombre", $POST) && isset($POST["nombre"])) {
+            if (array_key_exists("nombre", $POST)) {
                 $rta = $this->alumnosDao->modificar("email", $POST["email"], "nombre", $POST["nombre"]);
                 if ($rta === true && $alumnoAModificar->nombre !== $POST["nombre"]) {
                     echo PHP_EOL . 'Nombre modificado';
@@ -78,7 +83,7 @@ class AlumnoController
                 }
             }
             //APELLIDO
-            if (array_key_exists("apellido", $POST) && isset($POST["apellido"])) {
+            if (array_key_exists("apellido", $POST)) {
                 $rta = $this->alumnosDao->modificar("email", $POST["email"], "apellido", $POST["apellido"]);
                 if ($rta === true && $alumnoAModificar->apellido !== $POST["apellido"]) {
                     echo PHP_EOL . 'Apellido modificado';
@@ -91,7 +96,32 @@ class AlumnoController
         {
             echo "La persona buscada no existe";
         }
+
     }
+
+    function modificarAlumno2($email, $POST, $FILES)
+    {
+        
+        $alumnoAModificar = $this->alumnosDao->getAttributeByKeyCaseInsensitive("email", $email);
+        if (!is_null($alumnoAModificar)){
+            $nombreAux = $alumnoAModificar->nombre;
+            $apellidoAux = $alumnoAModificar->apellido;
+            $fotoAux = $alumnoAModificar->foto;
+            if(array_key_exists("apellido", $POST))
+            {
+                $apellidoAux = $POST["apellido"];
+            }
+            if(array_key_exists("nombre", $POST))
+            {
+                $nombreAux = $POST["nombre"];
+            }
+            $alumnoAux = new Alumno($nombreAux, $apellidoAux, $POST["email"], $fotoAux);
+            $this->alumnosDao->modificar2($alumnoAux);
+
+        }
+
+    }
+
     function mostrarAlumnos(){
         echo $this->alumnosDao->listar();
     }

@@ -22,62 +22,85 @@ class GenericDao
 
     public function listar()
     {
-        try {
-            $archivo = fopen($this->archivo, "r");
-            return fread($archivo, filesize($this->archivo));
-        } catch (Exception $e) {
-            throw new Exception("No se pudo listar", 0, $e);
-        } finally {
-            fclose($archivo);
+        if (file_exists($this->archivo) && trim(file_get_contents($this->archivo)) != false) {
+            try {
+                $archivo = fopen($this->archivo, "r");
+                return fread($archivo, filesize($this->archivo));
+            } catch (Exception $e) {
+                throw new Exception("No se pudo listar", 0, $e);
+            } finally {
+                fclose($archivo);
+            }
+        } else {
+            return "";
         }
     }
 
-    public function getByAttribute($attrKey, $attrValue)
+    public function getAttributeByKeyCaseInsensitive($attrKey, $attrValue)
     {
-        try {
-            $objects = json_decode($this->listar());
-            $retorno = array();
-            foreach ($objects as $object) {
-                if ($object->$attrKey == $attrValue) {
-                    array_push($retorno, $object);
+        $rta = null;
+        if (file_exists($this->archivo)) {
+            try {
+                $objects = json_decode($this->listar());
+                foreach ($objects as $object) {
+                    if (strtolower($object->$attrKey) == strtolower($attrValue)) {
+                        $rta = $object;
+                    }
                 }
+                return $rta;
+            } catch (Exception $e) {
+                throw new Exception("No se pudo listar", 0, $e);
             }
-            if(count($retorno) > 0){
-                return json_encode($retorno);
-            }else {
-                return null;
-            }
-        } catch (Exception $e) {
-            throw new Exception("No se pudo listar", 0, $e);
+        } else {
+            return null;
         }
     }
 
-    public function getByAttributeCaseInsensitive($attrKey, $attrValue)
+    public function getAttributesByKeyCaseInsensitive($attrKey, $attrValue)
     {
-        try {
-            $objects = json_decode($this->listar());
-            $retorno = array();
-            foreach ($objects as $object) {
-                if (strtolower($object->$attrKey) == strtolower($attrValue)) {
-                    array_push($retorno, $object);
+        //Valido que el archivo este creado
+        if (file_exists($this->archivo)) {
+
+            try {
+                $objects = json_decode($this->listar());
+                $retorno = array();
+                foreach ($objects as $object) {
+                    //Comparo todo en minuscula
+                    if (strtolower($object->$attrKey) == strtolower($attrValue)) {
+                        array_push($retorno, $object);
+                    }
                 }
+                if (count($retorno) > 0) {
+                    return json_encode($retorno);
+                } else {
+                    return null;
+                }
+            } catch (Exception $e) {
+                throw new Exception("No se pudo listar", 0, $e);
             }
-            if(count($retorno) > 0){
-                return json_encode($retorno);
-            }else {
-                return null;
-            }
-        } catch (Exception $e) {
-            throw new Exception("No se pudo listar", 0, $e);
+        } else {
+            //Si no esta creado retorno null
+            return null;
         }
     }
 
     public function guardar($object): bool
     {
         try {
-            $objects = json_decode($this->listar());
+            $jsonDecoded = json_decode($this->listar());
+            //Valido si el array de json esta vacio
+            if (count($jsonDecoded) == 0) {
+                //Si está vacio, lo formateo para que sea un array de objetos json.
+                $objects = [];
+            } else {
+                //Si no lo esta, copio lo que tiene en la variable objects
+                $objects = $jsonDecoded;
+            }
+            //Abro el archivo
             $archivo = fopen($this->archivo, "w");
+            //Pusheo mi objeto creado al array de objetos json
             array_push($objects, $object);
+            //Codifico el array como json
             fwrite($archivo, json_encode($objects));
             return true;
         } catch (Exception $e) {
@@ -117,7 +140,7 @@ class GenericDao
             $archivo = fopen($this->archivo, "w");
             foreach ($objects as $object) {
                 if ($object->$idKey == $idValue) {
-                    $object->$changeKey = $changeValue;
+                    $object->$changeKey == $changeValue;
                     $retorno = true;
                     break;
                 }
@@ -129,5 +152,12 @@ class GenericDao
         } finally {
             fclose($archivo);
         }
+    }
+
+
+    public function modificar2($objeto)
+    {
+        $this->borrar("email", $objeto->email);
+        $this->guardar($objeto);
     }
 }

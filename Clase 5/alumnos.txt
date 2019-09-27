@@ -1,1 +1,1 @@
-[{"nombre":"Roberto","apellido":"Piombi","email":"rpiombi@gmail.com","foto":".\/imagenes\/rpiombi@gmail.com.jpg"},{"nombre":"Damian","apellido":"Desario","email":"desariod@gmail.com","foto":".\/imagenes\/desariod@gmail.com.jpg"},{"nombre":"Juan","apellido":"Perez","email":"jperez@gmail.com","foto":".\/imagenes\/jperez@gmail.com.jpg"},{"nombre":"Juan","apellido":"Lopez","email":"jlopez@gmail.com","foto":".\/imagenes\/jlopez@gmail.com.jpg"}]
+[{"nombre":"Roberto","apellido":"Piombi","email":"fcardonato@gmail.com","foto":".\/imagenes\/fcardonato@gmail.com.jpg"}]

@@ -33,7 +33,7 @@ try {
                         break;
                     case "modificarAlumno":
                         if (isset($_POST["email"])){
-                            $alumnoController->modificarAlumno($_POST["email"], $_POST, $_FILES);
+                            $alumnoController->modificarAlumno2($_POST["email"], $_POST, $_FILES);
                         } else {
                             echo "Hubo un error en los datos enviados";
                         }
