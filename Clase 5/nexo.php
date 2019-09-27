@@ -73,6 +73,8 @@ try {
                         echo "Hubo un error en los datos enviados";
                     }
                     break;
+                    case "mostrarAlumnos":
+                    $alumnoController->mostrarAlumnos();
                 
                 }
             } else {

@@ -39,53 +39,61 @@ class AlumnoController
     function modificarAlumno($email, $POST, $FILES)
     {
         $alumnoAModificar = $this->alumnosDao->obtenerPorId("email", $email);
-        var_dump($FILES);
-        //IMAGEN
-        if(!is_null($FILES) && array_key_exists("foto", $FILES))
-        {
-            $fechaBkp = date("d-m-Y_H_i");
-            $array = explode(".", $alumnoAModificar->foto); //transormo en un array todo lo que este separado por un punto
-            $rutaNueva = "./imagenes/backUpFotos/" .$alumnoAModificar->apellido. $fechaBkp. ".".end($array);
-            //Backup Imagen
-            echo rename($alumnoAModificar->foto, $rutaNueva);
-            //Modificacion
-            $tmpName = $FILES["foto"]["tmp_name"];
-            $extension = pathinfo($_FILES["foto"]["name"], PATHINFO_EXTENSION);
-            $filename = "./imagenes/" .$email. "." . $extension;
-            $rta = move_uploaded_file($tmpName, $filename);
-            if ($rta === true) {
-                $rta = $this->alumnosDao->modificar("email", $email, "foto", $filename);
+        // var_dump($FILES);
+        // var_dump($alumnoAModificar->foto);
+        if (!is_null($alumnoAModificar)) {
+
+            //IMAGEN
+            if (!is_null($FILES) && array_key_exists("foto", $FILES)) {
+                $fechaBkp = date("d-m-Y_H_i");
+                $array = explode(".", $alumnoAModificar->foto); //transormo en un array todo lo que este separado por un punto
+                $rutaNueva = "./imagenes/backUpFotos/" . $alumnoAModificar->apellido . $fechaBkp . "." . end($array);
+                //Backup Imagen
+                rename($alumnoAModificar->foto, $rutaNueva);
+                //Modificacion
+                $tmpName = $FILES["foto"]["tmp_name"];
+                $extension = pathinfo($_FILES["foto"]["name"], PATHINFO_EXTENSION);
+                $filename = "./imagenes/" . $email . "." . $extension;
+                $rta = move_uploaded_file($tmpName, $filename);
                 if ($rta === true) {
-                    echo 'Imagen modificada';
+                    $rta = $this->alumnosDao->modificar("email", $email, "foto", $filename);
+                    if ($rta === true) {
+                        echo 'Imagen modificada';
+                    } else {
+                        echo 'Hubo un error al modificar la imagen';
+                    }
                 } else {
-                    echo 'Hubo un error al modificar la imagen';
+                    echo 'Hubo un error con la imagen';
                 }
-            } else {
-                echo 'Hubo un error con la imagen';
             }
+            // )
 
-
-        }
-        // !is_null($dao->obtenerPorId("email", $_POST["email"]))
-
-        //NOMBRE
-        if (isset($_POST["nombre"])) {
-            $rta = $dao->modificar("legajo", $_POST["legajo"], "nombre", $_POST["nombre"]);
-            if ($rta === true) {
-                echo PHP_EOL . 'Nombre modificado';
-            } else {
-                echo PHP_EOL . 'Hubo un error al modificar el nombre';
+            //NOMBRE
+            if (array_key_exists("nombre", $POST) && isset($POST["nombre"])) {
+                $rta = $this->alumnosDao->modificar("email", $POST["email"], "nombre", $POST["nombre"]);
+                if ($rta === true && $alumnoAModificar->nombre !== $POST["nombre"]) {
+                    echo PHP_EOL . 'Nombre modificado';
+                } else {
+                    echo PHP_EOL . 'Hubo un error al modificar el nombre';
+                }
             }
-        }
-        //APELLIDO
-        if (isset($_POST["apellido"])) {
-            $rta = $dao->modificar("legajo", $_POST["legajo"], "apellido", $_POST["apellido"]);
-            if ($rta === true) {
-                echo PHP_EOL . 'Apellido modificado';
-            } else {
-                echo PHP_EOL . 'Hubo un error al modificar el apellido';
+            //APELLIDO
+            if (array_key_exists("apellido", $POST) && isset($POST["apellido"])) {
+                $rta = $this->alumnosDao->modificar("email", $POST["email"], "apellido", $POST["apellido"]);
+                if ($rta === true && $alumnoAModificar->apellido !== $POST["apellido"]) {
+                    echo PHP_EOL . 'Apellido modificado';
+                } else {
+                    echo PHP_EOL . 'Hubo un error al modificar el apellido';
+                }
             }
         }
+        else
+        {
+            echo "La persona buscada no existe";
+        }
+    }
+    function mostrarAlumnos(){
+        echo $this->alumnosDao->listar();
     }
 
     function isImage($imagen): bool
