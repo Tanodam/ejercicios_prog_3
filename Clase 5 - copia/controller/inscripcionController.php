@@ -14,10 +14,10 @@ class InscripcionController
 
     function inscribirAlumno($nombreAlumno, $apellidoAlumno, $emailAlumno, $nombreMateria, $codigoMateria) {
         //Valido que la materia exista
-        $materiaObtenida = $this->materiasDao->getObjectByKeyCaseInsensitive("codigo", $codigoMateria);
+        $materiaObtenida = $this->materiasDao->getAttributeByKeyCaseInsensitive("codigo", $codigoMateria);
         //Valido que el alumno exista
-        $alumnoObtenido = $this->alumnosDao->getObjectByKeyCaseInsensitive("email", $emailAlumno);
-        if(!is_null($alumnoObtenido) && !is_null($materiaObtenida) && $materiaObtenida->cupo > 0){
+        $alumnoObtenido = $this->alumnosDao->getAttributeByKeyCaseInsensitive("email", $emailAlumno);
+        if($materiaObtenida->codigo == $codigoMateria && $materiaObtenida->cupo > 0){
             $inscripcion = new Inscripcion($alumnoObtenido->nombre, $alumnoObtenido->apellido, $alumnoObtenido->email, $materiaObtenida->nombre, $codigoMateria);
             $rta = $this->inscripcionesDao->guardar($inscripcion);
             if ($rta === true) {
@@ -55,11 +55,11 @@ class InscripcionController
         $rta = "";
         if(array_key_exists("codigoMateria", $GET) && !array_key_exists("apellidoAlumno", $GET)) //poner primero el campo que esta en null para que no salte error por Undefined index
         {
-            $rta = "Alumnos filtrados por materia\n" . $this->inscripcionesDao->getObjtecsByKeyCaseInsensitive("codigoMateria", $GET["codigoMateria"]);
+            $rta = "Alumnos filtrados por materia\n" . $this->inscripcionesDao->getAttributesByKeyCaseInsensitive("codigoMateria", $GET["codigoMateria"]);
         }
         elseif(array_key_exists("apellidoAlumno", $GET) && !array_key_exists("codigoMateria", $GET))
         {
-            $rta = "Alumnos filtrados por apellido\n" . $this->inscripcionesDao->getObjtecsByKeyCaseInsensitive("apellidoAlumno", $GET["apellidoAlumno"]);
+            $rta = "Alumnos filtrados por apellido\n" . $this->inscripcionesDao->getAttributesByKeyCaseInsensitive("apellidoAlumno", $GET["apellidoAlumno"]);
         }
         elseif(array_key_exists("apellidoAlumno", $GET) && array_key_exists("codigoMateria", $GET))
         {

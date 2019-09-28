@@ -8,32 +8,30 @@ include './controller/inscripcionController.php';
 include './clases/genericDao.php';
 
 $request = ($_SERVER['REQUEST_METHOD']);
-$alumnoController = new AlumnoController();
-$materiaController = new MateriaController();
-$inscripcionController = new InscripcionController();
+
 
 try {
     switch ($request) {
         case "POST":
             if (isset($_POST["case"])) {
                 switch ($_POST["case"]) {
-                    case "cargarAlumno":
-                        if (isset($_POST["nombre"]) && isset($_POST["apellido"]) && isset($_POST["email"]) && isset($_FILES["foto"])) {
-                            $alumnoController->cargarAlumno($_POST["nombre"], $_POST["apellido"], $_POST["email"], $_FILES["foto"]);
+                    case "":
+                        if (isset($_POST[""]) && isset($_POST[""]) && isset($_POST[""]) && isset($_FILES[""])) {
+
                         } else {
                             echo "Hubo un error en los datos enviados";
                         }
                         break;
-                    case "cargarMateria":
-                        if (isset($_POST["nombre"]) && isset($_POST["codigo"]) && isset($_POST["cupo"]) && isset($_POST["aula"])) {
-                            $materiaController->cargarMateria($_POST["nombre"], $_POST["codigo"], $_POST["cupo"], $_POST["aula"]);
+                    case "":
+                        if (isset($_POST[""]) && isset($_POST[""]) && isset($_POST[""]) && isset($_POST[""])) {
+                        
                         } else {
                             echo "Hubo un error en los datos enviados";
                         }
                         break;
-                    case "modificarAlumno":
-                        if (isset($_POST["email"])){
-                            $alumnoController->modificarAlumno($_POST, $_FILES);
+                    case "":
+                        if (isset($_POST[""])){
+                            
                         } else {
                             echo "Hubo un error en los datos enviados";
                         }
@@ -45,18 +43,20 @@ try {
         case "GET":
             if (isset($_GET["case"])) {
                 switch ($_GET["case"]) {
-                    case "consultarAlumno":
-                        if(isset($_GET["apellido"])) {
-                            echo $alumnoController->consultarAlumno($_GET["apellido"]);
+                    case "":
+                        if(isset($_GET[""])) {
                         } else {
-                            echo 'Indique el apellido';
+                            echo '';
                         }
                         break;
-                    case "inscripciones":
-                    echo $inscripcionController->mostrarInscripciones();
+                    case "":
+                    if(isset($_GET[""])) {
+                    } else {
+                        echo '';
+                    }
                     break;
-                    case "inscripcionesFiltrada":
-                    if(isset($_GET["codigoMateria"]) && !isset($_GET["apellidoAlumno"]) || !isset($_GET["codigoMateria"]) && isset($_GET["apellidoAlumno"]) ||
+                    case "":
+                    if(isset($_GET[""]) && !isset($_GET[""]) || !isset($_GET[""]) && isset($_GET[""]) ||
                     isset($_GET["codigoMateria"]) && isset($_GET["apellidoAlumno"]))
                     {
                         echo $inscripcionController->mostrarInscripcionesFiltro($_GET);

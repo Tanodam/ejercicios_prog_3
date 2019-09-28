@@ -9,9 +9,20 @@ class GenericDao
         $this->archivo = $archivo;
     }
 
+    public function obtenerPorId($idKey, $idValue)
+    {
+        $objects = json_decode($this->listar());
+        foreach ($objects as $object) {
+            if ($object->$idKey == $idValue) {
+                return $object;
+            }
+        }
+        return null;
+    }
+
     public function listar()
     {
-        if (file_exists($this->archivo) && filesize($this->archivo) != 0) {
+        if (file_exists($this->archivo) && trim(file_get_contents($this->archivo)) != false) {
             try {
                 $archivo = fopen($this->archivo, "r");
                 return fread($archivo, filesize($this->archivo));
@@ -25,25 +36,28 @@ class GenericDao
         }
     }
 
-    public function getObjectByKeyCaseInsensitive($attrKey, $attrValue)
+    public function getAttributeByKeyCaseInsensitive($attrKey, $attrValue)
     {
+        $rta = null;
         //Valido que el archivo este creado y que el size sea distinto de 0
         if (file_exists($this->archivo) && filesize($this->archivo) != 0) {
             try {
                 $objects = json_decode($this->listar());
                 foreach ($objects as $object) {
                     if (strtolower($object->$attrKey) == strtolower($attrValue)) {
-                        return $object;
+                        $rta = $object;
                     }
                 }
-                return null;
+                return $rta;
             } catch (Exception $e) {
                 throw new Exception("No se pudo listar", 0, $e);
             }
+        } else {
+            return $rta;
         }
     }
 
-    public function getObjtecsByKeyCaseInsensitive($attrKey, $attrValue)
+    public function getAttributesByKeyCaseInsensitive($attrKey, $attrValue)
     {
         //Valido que el archivo este creado y que el size sea distinto de 0
         if (file_exists($this->archivo) && filesize($this->archivo) != 0) {
@@ -77,10 +91,11 @@ class GenericDao
         try {
             $objects = [];
             if (file_exists($this->archivo) && filesize($this->archivo) != 0) {
+
                 $jsonDecoded = json_decode($this->listar());
                 //Valido si el array de json esta vacio
-                if (count($jsonDecoded) > 0) {
-                    //Si no está vacio, copio el contenido de json decode a $objects.
+                if (count($jsonDecoded) >= 0) {
+                    //Si está vacio, lo formateo para que sea un array de objetos json.
                     $objects = $jsonDecoded;
                 }
             }
@@ -111,7 +126,7 @@ class GenericDao
                 }
             }
 
-            return fwrite($archivo, json_encode($objects));
+            return fwrite($archivo, json_encode($objects));;
         } catch (Exception $e) {
             throw new Exception("No se pudo borrar", 0, $e);
         } finally {
@@ -119,29 +134,45 @@ class GenericDao
         }
     }
 
-    public function modificar($idKey, $idValue, $objeto): bool
+    public function modificar2($idKey, $idValue, $changeKey, $changeValue): bool
     {
         try {
+            $retorno = false;
             $objects = json_decode($this->listar());
-            $rta = false;
-            for ($i = 0; $i < count($objects); $i++) {
-                if ($objects[$i]->$idKey == $idValue) {
-                    $objects[$i] = $objeto;
-                    $rta = true;
+            $archivo = fopen($this->archivo, "w");
+            foreach ($objects as $object) {
+                if ($object->$idKey == $idValue) {
+                    $object->$changeKey == $changeValue;
+                    $retorno = true;
                     break;
                 }
             }
-            if($rta === true)
-            {
-                $archivo = fopen($this->archivo, "w");
-                return fwrite($archivo, json_encode($objects));
-            }
-            else{
-                return $rta;
-            }
+            fwrite($archivo, json_encode($objects));
+            return $retorno;
         } catch (Exception $e) {
             throw new Exception("No se pudo modificar", 0, $e);
         } finally {
+            fclose($archivo);
+        }
+    }
+
+
+    public function modificar($idKey, $idValue, $objeto): bool
+    {
+        $objects = json_decode($this->listar());
+        for ($i = 0; $i < count($objects); $i++) {
+            if ($objects[$i]->$idKey == $idValue) {
+                $objects[$i] = $objeto;
+            }
+        }
+        try {
+            $archivo = fopen($this->archivo, "w");
+            return fwrite($archivo, json_encode($objects));
+        } catch (Exception $e) {
+            throw new Exception("No se pudo modificar", 0, $e);
+        }
+        finally
+        {
             fclose($archivo);
         }
     }
