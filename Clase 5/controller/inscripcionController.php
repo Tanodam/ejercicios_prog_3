@@ -17,13 +17,14 @@ class InscripcionController
         $materiaObtenida = $this->materiasDao->getAttributeByKeyCaseInsensitive("codigo", $codigoMateria);
         //Valido que el alumno exista
         $alumnoObtenido = $this->alumnosDao->getAttributeByKeyCaseInsensitive("email", $emailAlumno);
-        $alumnoYaInscripto =  $this->inscripcionesDao->getAttributeByKeyCaseInsensitive("codigoMateria", $codigoMateria);
-        if($materiaObtenida->codigo == $codigoMateria && $materiaObtenida->cupo > 0 && $alumnoObtenido->email == $emailAlumno && is_null($alumnoYaInscripto)){
-            $inscripcion = new Inscripcion($nombreAlumno, $apellidoAlumno, $emailAlumno, $nombreMateria, $codigoMateria);
+        if($materiaObtenida->codigo == $codigoMateria && $materiaObtenida->cupo > 0){
+            $inscripcion = new Inscripcion($alumnoObtenido->nombre, $alumnoObtenido->apellido, $alumnoObtenido->email, $materiaObtenida->nombre, $codigoMateria);
             $rta = $this->inscripcionesDao->guardar($inscripcion);
             if ($rta === true) {
-                $materiaObtenida->cupo--;
-                $rta = $this->materiasDao->modificar("codigo",$codigoMateria, "cupo", $materiaObtenida->cupo);
+                //materia con cupo restado
+                $cupoRestado = $materiaObtenida->cupo - 1;
+                $materiaAux = new Materia($materiaObtenida->nombre, $materiaObtenida->codigo,  (string)$cupoRestado,$materiaObtenida->aula);
+                $rta = $this->materiasDao->modificar("codigo",$codigoMateria, $materiaAux);
                 if($rta === true)
                 {
                     echo 'Se inscribio el alumno';
@@ -54,11 +55,11 @@ class InscripcionController
         $rta = "";
         if(array_key_exists("codigoMateria", $GET) && !array_key_exists("apellidoAlumno", $GET)) //poner primero el campo que esta en null para que no salte error por Undefined index
         {
-            $rta = "Alumnos filtrados por materia\n</br>" . $this->inscripcionesDao->getByAttributeCaseInsensitive("codigoMateria", $GET["codigoMateria"]);
+            $rta = "Alumnos filtrados por materia\n" . $this->inscripcionesDao->getAttributesByKeyCaseInsensitive("codigoMateria", $GET["codigoMateria"]);
         }
         elseif(array_key_exists("apellidoAlumno", $GET) && !array_key_exists("codigoMateria", $GET))
         {
-            $rta = "Alumnos filtrados por apellido\n</br>" . $this->inscripcionesDao->getByAttributeCaseInsensitive("apellidoAlumno", $GET["apellidoAlumno"]);
+            $rta = "Alumnos filtrados por apellido\n" . $this->inscripcionesDao->getAttributesByKeyCaseInsensitive("apellidoAlumno", $GET["apellidoAlumno"]);
         }
         elseif(array_key_exists("apellidoAlumno", $GET) && array_key_exists("codigoMateria", $GET))
         {

@@ -52,7 +52,7 @@ class GenericDao
                 throw new Exception("No se pudo listar", 0, $e);
             }
         } else {
-            return null;
+            return $rta;
         }
     }
 
@@ -86,15 +86,17 @@ class GenericDao
 
     public function guardar($object): bool
     {
+
         try {
-            $jsonDecoded = json_decode($this->listar());
-            //Valido si el array de json esta vacio
-            if (count($jsonDecoded) == 0) {
-                //Si está vacio, lo formateo para que sea un array de objetos json.
-                $objects = [];
-            } else {
-                //Si no lo esta, copio lo que tiene en la variable objects
-                $objects = $jsonDecoded;
+            $objects = [];
+            if (file_exists($this->archivo)) {
+
+                $jsonDecoded = json_decode($this->listar());
+                //Valido si el array de json esta vacio
+                if (count($jsonDecoded) >= 0) {
+                    //Si está vacio, lo formateo para que sea un array de objetos json.
+                    $objects = $jsonDecoded;
+                }
             }
             //Abro el archivo
             $archivo = fopen($this->archivo, "w");
@@ -119,12 +121,11 @@ class GenericDao
             foreach ($objects as $key => $object) {
                 if ($object->$idKey == $idValue) {
                     unset($objects[$key]);
-                    $retorno = true;
                     break;
                 }
             }
-            fwrite($archivo, json_encode($objects));
-            return $retorno;
+
+            return fwrite($archivo, json_encode($objects));;
         } catch (Exception $e) {
             throw new Exception("No se pudo borrar", 0, $e);
         } finally {
@@ -132,7 +133,7 @@ class GenericDao
         }
     }
 
-    public function modificar($idKey, $idValue, $changeKey, $changeValue): bool
+    public function modificar2($idKey, $idValue, $changeKey, $changeValue): bool
     {
         try {
             $retorno = false;
@@ -155,9 +156,23 @@ class GenericDao
     }
 
 
-    public function modificar2($objeto)
+    public function modificar($idKey, $idValue, $objeto): bool
     {
-        $this->borrar("email", $objeto->email);
-        $this->guardar($objeto);
+        $objects = json_decode($this->listar());
+        for ($i = 0; $i < count($objects); $i++) {
+            if ($objects[$i]->$idKey == $idValue) {
+                $objects[$i] = $objeto;
+            }
+        }
+        try {
+            $archivo = fopen($this->archivo, "w");
+            return fwrite($archivo, json_encode($objects));
+        } catch (Exception $e) {
+            throw new Exception("No se pudo modificar", 0, $e);
+        }
+        finally
+        {
+            fclose($archivo);
+        }
     }
 }

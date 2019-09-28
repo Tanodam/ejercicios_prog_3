@@ -1,0 +1,55 @@
+function modificarAlumno($email, $POST, $FILES)
+    {
+        $alumnoAModificar = $this->alumnosDao->getAttributeByKeyCaseInsensitive("email", $email);
+        //  var_dump($FILES);
+        var_dump($POST);
+        //var_dump($alumnoAModificar);
+        if (!is_null($alumnoAModificar)) {
+
+            //IMAGEN
+            if (!is_null($FILES) && array_key_exists("foto", $FILES)) {
+                $fechaBkp = date("d-m-Y_H_i");
+                $array = explode(".", $alumnoAModificar->foto); //transormo en un array todo lo que este separado por un punto
+                $rutaNueva = "./imagenes/backUpFotos/" . $alumnoAModificar->apellido . $fechaBkp . "." . end($array);
+                //Backup Imagen
+                rename($alumnoAModificar->foto, $rutaNueva);
+                //Modificacion
+                $tmpName = $FILES["foto"]["tmp_name"];
+                $extension = pathinfo($_FILES["foto"]["name"], PATHINFO_EXTENSION);
+                $filename = "./imagenes/" . $email . "." . $extension;
+                $rta = move_uploaded_file($tmpName, $filename);
+                if ($rta === true) {
+                    $rta = $this->alumnosDao->modificar("email", $email, "foto", $filename);
+                    if ($rta === true) {
+                        echo 'Imagen modificada';
+                    } else {
+                        echo 'Hubo un error al modificar la imagen';
+                    }
+                } else {
+                    echo 'Hubo un error con la imagen';
+                }
+            }
+            // )
+
+            //NOMBRE
+            if (array_key_exists("nombre", $POST)) {
+                $rta = $this->alumnosDao->modificar("email", $POST["email"], "nombre", $POST["nombre"]);
+                if ($rta === true && $alumnoAModificar->nombre !== $POST["nombre"]) {
+                    echo PHP_EOL . 'Nombre modificado';
+                } else {
+                    echo PHP_EOL . 'Hubo un error al modificar el nombre';
+                }
+            }
+            //APELLIDO
+            if (array_key_exists("apellido", $POST)) {
+                $rta = $this->alumnosDao->modificar("email", $POST["email"], "apellido", $POST["apellido"]);
+                if ($rta === true && $alumnoAModificar->apellido !== $POST["apellido"]) {
+                    echo PHP_EOL . 'Apellido modificado';
+                } else {
+                    echo PHP_EOL . 'Hubo un error al modificar el apellido';
+                }
+            }
+        } else {
+            echo "La persona buscada no existe";
+        }
+    }

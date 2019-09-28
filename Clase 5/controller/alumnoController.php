@@ -29,8 +29,7 @@ class AlumnoController
             } else {
                 echo 'Hubo un error con la fotos';
             }
-        }
-        else{
+        } else {
             echo "No se puede cargar el alumno";
         }
     }
@@ -43,86 +42,44 @@ class AlumnoController
     function modificarAlumno($email, $POST, $FILES)
     {
         $alumnoAModificar = $this->alumnosDao->getAttributeByKeyCaseInsensitive("email", $email);
-        //  var_dump($FILES);
-          var_dump($POST);
-          //var_dump($alumnoAModificar);
         if (!is_null($alumnoAModificar)) {
-
-            //IMAGEN
-            if (!is_null($FILES) && array_key_exists("foto", $FILES)) {
-                $fechaBkp = date("d-m-Y_H_i");
-                $array = explode(".", $alumnoAModificar->foto); //transormo en un array todo lo que este separado por un punto
-                $rutaNueva = "./imagenes/backUpFotos/" . $alumnoAModificar->apellido . $fechaBkp . "." . end($array);
-                //Backup Imagen
-                rename($alumnoAModificar->foto, $rutaNueva);
-                //Modificacion
-                $tmpName = $FILES["foto"]["tmp_name"];
-                $extension = pathinfo($_FILES["foto"]["name"], PATHINFO_EXTENSION);
-                $filename = "./imagenes/" . $email . "." . $extension;
-                $rta = move_uploaded_file($tmpName, $filename);
-                if ($rta === true) {
-                    $rta = $this->alumnosDao->modificar("email", $email, "foto", $filename);
-                    if ($rta === true) {
-                        echo 'Imagen modificada';
-                    } else {
-                        echo 'Hubo un error al modificar la imagen';
-                    }
-                } else {
-                    echo 'Hubo un error con la imagen';
-                }
-            }
-            // )
-
-            //NOMBRE
-            if (array_key_exists("nombre", $POST)) {
-                $rta = $this->alumnosDao->modificar("email", $POST["email"], "nombre", $POST["nombre"]);
-                if ($rta === true && $alumnoAModificar->nombre !== $POST["nombre"]) {
-                    echo PHP_EOL . 'Nombre modificado';
-                } else {
-                    echo PHP_EOL . 'Hubo un error al modificar el nombre';
-                }
-            }
-            //APELLIDO
-            if (array_key_exists("apellido", $POST)) {
-                $rta = $this->alumnosDao->modificar("email", $POST["email"], "apellido", $POST["apellido"]);
-                if ($rta === true && $alumnoAModificar->apellido !== $POST["apellido"]) {
-                    echo PHP_EOL . 'Apellido modificado';
-                } else {
-                    echo PHP_EOL . 'Hubo un error al modificar el apellido';
-                }
-            }
-        }
-        else
-        {
-            echo "La persona buscada no existe";
-        }
-
-    }
-
-    function modificarAlumno2($email, $POST, $FILES)
-    {
-        
-        $alumnoAModificar = $this->alumnosDao->getAttributeByKeyCaseInsensitive("email", $email);
-        if (!is_null($alumnoAModificar)){
+            /// Me guardo el valor actual de todas la claves del usuario, si el usuario deseará modificarlas, se pisaran.
             $nombreAux = $alumnoAModificar->nombre;
             $apellidoAux = $alumnoAModificar->apellido;
             $fotoAux = $alumnoAModificar->foto;
-            if(array_key_exists("apellido", $POST))
-            {
+            if (array_key_exists("apellido", $POST) && $nombreAux != $POST["apellido"]) {
                 $apellidoAux = $POST["apellido"];
             }
-            if(array_key_exists("nombre", $POST))
-            {
+            if (array_key_exists("nombre", $POST)&& $apellidoAux != $POST["nombre"]) {
                 $nombreAux = $POST["nombre"];
             }
+            if (array_key_exists("foto", $FILES)) {
+                $fechaBkp = date("d-m-Y_H_i");// Me guardo la hora actual
+                $array = explode(".", $alumnoAModificar->foto); //transormo en un array todo lo que este separado por un punto
+                $rutaParaBkp = "./imagenes/backUpFotos/" . 
+                $alumnoAModificar->apellido . $fechaBkp . "." . end($array);//Genero la ruta para almacenar la foto de backup
+                //Backup Imagen
+                rename($alumnoAModificar->foto, $rutaParaBkp);// Hago backup de la foto
+                //Modificacion
+                $tmpName = $FILES["foto"]["tmp_name"];
+                $extension = pathinfo($_FILES["foto"]["name"], PATHINFO_EXTENSION);
+                $fotoAux = "./imagenes/" . $email . "." . $extension; // Cambio el nombre de la foto y coloco email-fecha.extension
+                $rta = move_uploaded_file($tmpName, $fotoAux);
+            } 
             $alumnoAux = new Alumno($nombreAux, $apellidoAux, $POST["email"], $fotoAux);
-            $this->alumnosDao->modificar2($alumnoAux);
-
+            $rta = $this->alumnosDao->modificar("email", $POST["email"], $alumnoAux);
+            if($rta)
+            {
+                echo "Modificacion realizada";
+            }
+            else{
+                echo "No se pudo realizar la modificacion";
+            }
         }
-
     }
 
-    function mostrarAlumnos(){
+    function mostrarAlumnos()
+    {
         echo $this->alumnosDao->listar();
     }
 
