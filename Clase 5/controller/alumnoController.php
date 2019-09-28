@@ -57,6 +57,7 @@ class AlumnoController
                     $nombreAux = $POST["nombre"];
                 }
                 if (array_key_exists("foto", $FILES)) {
+                    $rta = true;
                     $fechaBkp = date("d-m-Y_H_i");// Me guardo la hora actual
                     $array = explode(".", $alumnoAModificar->foto); //transormo en un array todo lo que este separado por un punto
                     $rutaParaBkp = "./imagenes/backUpFotos/" . 
