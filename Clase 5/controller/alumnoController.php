@@ -4,6 +4,7 @@ class AlumnoController
     //TODO deberia ser estatico la clase y el atributo
     public $alumnosDao;
 
+    
     public function __construct()
     {
         $this->alumnosDao = new GenericDao('./alumnos.txt');
@@ -47,10 +48,10 @@ class AlumnoController
             $nombreAux = $alumnoAModificar->nombre;
             $apellidoAux = $alumnoAModificar->apellido;
             $fotoAux = $alumnoAModificar->foto;
-            if (array_key_exists("apellido", $POST) && $nombreAux != $POST["apellido"]) {
+            if (array_key_exists("apellido", $POST) && $apellidoAux != $POST["apellido"]) {
                 $apellidoAux = $POST["apellido"];
             }
-            if (array_key_exists("nombre", $POST)&& $apellidoAux != $POST["nombre"]) {
+            if (array_key_exists("nombre", $POST)&& $nombreAux != $POST["nombre"]) {
                 $nombreAux = $POST["nombre"];
             }
             if (array_key_exists("foto", $FILES)) {
@@ -63,7 +64,7 @@ class AlumnoController
                 //Modificacion
                 $tmpName = $FILES["foto"]["tmp_name"];
                 $extension = pathinfo($_FILES["foto"]["name"], PATHINFO_EXTENSION);
-                $fotoAux = "./imagenes/" . $email . "." . $extension; // Cambio el nombre de la foto y coloco email-fecha.extension
+                $fotoAux = "./imagenes/" . $email . "." . $extension; // Cambio el nombre de la foto y coloco email.extension
                 $rta = move_uploaded_file($tmpName, $fotoAux);
             } 
             $alumnoAux = new Alumno($nombreAux, $apellidoAux, $POST["email"], $fotoAux);

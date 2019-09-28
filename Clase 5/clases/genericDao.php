@@ -39,7 +39,8 @@ class GenericDao
     public function getAttributeByKeyCaseInsensitive($attrKey, $attrValue)
     {
         $rta = null;
-        if (file_exists($this->archivo)) {
+        //Valido que el archivo este creado y que el size sea distinto de 0
+        if (file_exists($this->archivo) && filesize($this->archivo) != 0) {
             try {
                 $objects = json_decode($this->listar());
                 foreach ($objects as $object) {
@@ -58,8 +59,8 @@ class GenericDao
 
     public function getAttributesByKeyCaseInsensitive($attrKey, $attrValue)
     {
-        //Valido que el archivo este creado
-        if (file_exists($this->archivo)) {
+        //Valido que el archivo este creado y que el size sea distinto de 0
+        if (file_exists($this->archivo) && filesize($this->archivo) != 0) {
 
             try {
                 $objects = json_decode($this->listar());
@@ -89,7 +90,7 @@ class GenericDao
 
         try {
             $objects = [];
-            if (file_exists($this->archivo)) {
+            if (file_exists($this->archivo) && filesize($this->archivo) != 0) {
 
                 $jsonDecoded = json_decode($this->listar());
                 //Valido si el array de json esta vacio
