@@ -1,10 +1,10 @@
 <?php
-include './clases/alumno.php';
-include './clases/materia.php';
-include './clases/inscripcion.php';
-include './controller/alumnoController.php';
-include './controller/materiaController.php';
-include './controller/inscripcionController.php';
+include './clases/';
+include './clases/';
+include './clases/';
+include './controller/';
+include './controller/';
+include './controller/';
 include './clases/genericDao.php';
 
 $request = ($_SERVER['REQUEST_METHOD']);
@@ -52,29 +52,26 @@ try {
                     case "":
                     if(isset($_GET[""])) {
                     } else {
-                        echo '';
                     }
                     break;
                     case "":
-                    if(isset($_GET[""]) && !isset($_GET[""]) || !isset($_GET[""]) && isset($_GET[""]) ||
-                    isset($_GET["codigoMateria"]) && isset($_GET["apellidoAlumno"]))
+                    if(isset($_GET[""]))
                     {
-                        echo $inscripcionController->mostrarInscripcionesFiltro($_GET);
                     }
                     else
                     {
-                        echo 'Indique apellido o materia a buscar';
                     }
                     break;
-                    case "inscribirAlumno":
-                    if (isset($_GET["nombreAlumno"]) && isset($_GET["apellidoAlumno"]) && isset($_GET["emailAlumno"]) && isset($_GET["nombreMateria"]) && isset($_GET["codigoMateria"])) {
-                        $inscripcionController->inscribirAlumno($_GET["nombreAlumno"], $_GET["apellidoAlumno"], $_GET["emailAlumno"], $_GET["nombreMateria"], $_GET["codigoMateria"]);
-                    } else {
-                        echo "Hubo un error en los datos enviados";
+                    case "":
+                    if (isset($_GET[""]))
+                    {
+                    }
+                    else {
+
                     }
                     break;
-                    case "mostrarAlumnos":
-                    $alumnoController->mostrarAlumnos();
+                    case "":
+                    break;
                 
                 }
             } else {

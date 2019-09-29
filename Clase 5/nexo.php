@@ -75,6 +75,14 @@ try {
                     break;
                     case "mostrarAlumnos":
                     $alumnoController->mostrarAlumnos();
+                    break;
+                    case "borrarAlumno":
+                    if(isset($_GET["email"])) {
+                        echo $alumnoController->borrarAlumno("email",$_GET["email"]);
+                    } else {
+                        echo 'Indique el email';
+                    }
+                    break;
                 
                 }
             } else {

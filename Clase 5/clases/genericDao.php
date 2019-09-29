@@ -100,22 +100,25 @@ class GenericDao
 
     public function borrar($idKey, $idValue): bool
     {
+        $rta = false;
+        $archivo = null;
         try {
-            $retorno = false;
             $objects = json_decode($this->listar());
-            $archivo = fopen($this->archivo, "w");
-            foreach ($objects as $key => $object) {
-                if ($object->$idKey == $idValue) {
-                    unset($objects[$key]);
+            for ($i = 0; $i < count($objects); $i++) {
+                if ($objects[$i]->$idKey == $idValue) {
+                    array_splice($objects, $i, 1);
+                    $archivo = fopen($this->archivo, "w");
+                    $rta = fwrite($archivo, json_encode($objects));
                     break;
                 }
             }
-
-            return fwrite($archivo, json_encode($objects));
+            return $rta;
         } catch (Exception $e) {
             throw new Exception("No se pudo borrar", 0, $e);
         } finally {
-            fclose($archivo);
+            if ($archivo !== null) {
+                fclose($archivo);
+            }
         }
     }
 
@@ -131,12 +134,10 @@ class GenericDao
                     break;
                 }
             }
-            if($rta === true)
-            {
+            if ($rta === true) {
                 $archivo = fopen($this->archivo, "w");
                 return fwrite($archivo, json_encode($objects));
-            }
-            else{
+            } else {
                 return $rta;
             }
         } catch (Exception $e) {
