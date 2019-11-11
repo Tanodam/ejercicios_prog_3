@@ -17,14 +17,27 @@ class productoController implements IApiControler
     public function TraerTodos($request, $response, $args)
     {
         $todosLosProductos = Producto::all();
-        $newResponse = $response->withJson($todosLosProductos, 200);
+        if($todosLosProductos != null)
+        {
+            $newResponse = $response->withJson($todosLosProductos, 200);
+        }
+        else{
+            $newResponse = $response->withJson("No hay productos", 200);
+        }
         return $newResponse;
     }
     public function TraerUno($request, $response, $args)
     {
         $id = $args["id"];
         $producto = Producto::find($id);
-        $newResponse = $response->withJson($producto, 200);
+        if($producto != null)
+        {
+            $newResponse = $response->withJson($producto, 200);
+        }
+        else
+        {
+            $newResponse = $response->withJson("No existe producto con ese ID", 200);
+        }
         return $newResponse;
     }
 
@@ -43,12 +56,17 @@ class productoController implements IApiControler
     }
     public function BorrarUno($request, $response, $args)
     {
-        //complete el codigo
         $parametros = $request->getParsedBody();
         $id = $parametros['id'];
         $producto = Producto::find($id);
-        $producto->delete();
-        $newResponse = $response->withJson('Producto ' . $id . ' borrado', 200);
+        if($producto != null)
+        {
+            $producto->delete();
+            $newResponse = $response->withJson('Producto ' . $id . ' borrado', 200);
+        }
+        else{
+            $newResponse = $response->withJson('El producto no existe', 200);
+        }
         return $newResponse;
     }
 

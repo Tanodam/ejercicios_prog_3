@@ -6,6 +6,7 @@ use App\Models\ORM\Pedido;
 use App\Models\IApiControler;
 
 include_once __DIR__ . '/pedido.php';
+include_once __DIR__ . '/producto.php';
 include_once __DIR__ . '/pedido_producto.php';
 include_once __DIR__ . '../../modelAPI/IApiControler.php';
 
@@ -24,22 +25,37 @@ class pedidoController implements IApiControler
 
   public function TraerTodos($request, $response, $args)
   {
-    //return cd::all()->toJson();
     $todosLasPedidos = Pedido::all();
-    $newResponse = $response->withJson($todosLasPedidos, 200);
+    if($todosLasPedidos != null)
+    {
+      $newResponse = $response->withJson($todosLasPedidos, 200);
+    }
+    else
+    {
+      $newResponse = $response->withJson("No hay pedidos", 200);
+    }
     return $newResponse;
   }
   public function TraerUno($request, $response, $args)
   {
     //complete el codigo
     $id = $args["id"];
-    $todosLasPedidos = Pedido::find($id);
-    $newResponse = $response->withJson($todosLasPedidos, 200);
+    $pedido = Pedido::find($id);
+    if($pedido != null)
+    {
+      $newResponse = $response->withJson($pedido, 200);
+    }
+    else
+    {
+      $newResponse = $response->withJson("No existe pedido con ese ID", 200);
+    }
     return $newResponse;
   }
 
   public function CargarUno($request, $response, $args)
   {
+    $productoExistente = null;
+    $arrayDeProductosExistentes = "";
     $arrayDeParametros = $request->getParsedBody();
     $pedidoNuevo = new Pedido;
     $pedidoNuevo->idEstadoPedido = 1;
@@ -54,12 +70,29 @@ class pedidoController implements IApiControler
     $idPedidoCargado = $pedidoNuevo->id;
     $productos = explode(",", $arrayDeParametros["productos"]);
     for ($i = 0; $i < count($productos); $i++) {
-      $pedido_producto = new pedido_producto;
-      $pedido_producto->idPedido = $idPedidoCargado;
-      $pedido_producto->idProducto = $productos[$i];
-      //Mostrar productos
-      $pedido_producto->save();
+      $productoExistente = Producto::find($productos[$i]);
+      if($productoExistente != null)
+      {
+        if($i == 0)
+        {
+          $arrayDeProductosExistentes = $arrayDeProductosExistentes.$productos[$i];
+        }
+        else
+        {
+          $arrayDeProductosExistentes = $arrayDeProductosExistentes . ",".$productos[$i];
+        }
+        $pedido_producto = new pedido_producto;
+        $pedido_producto->idPedido = $idPedidoCargado;
+        $pedido_producto->idProducto = $productos[$i];
+        $pedido_producto->save();
+      }
+      else{
+        echo 'El producto '. $productos[$i] . ' no existe';
+      }
     }
+    //Actualizado la verdadera cantidad de productos existentes
+    $pedidoNuevo->productos = $arrayDeProductosExistentes;
+    $pedidoNuevo->save();
     $newResponse = $response->withJson('Pedido ' . $idPedidoCargado . ' cargado', 200);
     return $newResponse;
   }
@@ -72,7 +105,6 @@ class pedidoController implements IApiControler
     {
       $pedido->delete();
       pedido_producto::where("idPedido", "=", $id)->delete();
-      echo($pedido);
       $newResponse = $response->withJson('Pedido ' . $id . ' borrado', 200);
     }
     else
