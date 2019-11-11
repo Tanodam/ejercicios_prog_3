@@ -17,8 +17,8 @@ class AutentificadorJWT
          + los que quieras ej="'app'=> "API REST CD 2019" 
         */
         $payload = array(
-        	'iat'=>$ahora,
-            'exp' => $ahora + (60),
+        	//'iat'=>$ahora,
+            //'exp' => $ahora + (60),
             'aud' => self::Aud(),
             'data' => $datos,
             'app'=> "API REST CD UTN FRA"
