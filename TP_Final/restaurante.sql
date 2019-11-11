@@ -1,13 +1,12 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 09-11-2019 a las 21:11:12
--- Versión del servidor: 10.4.6-MariaDB
--- Versión de PHP: 7.3.8
+-- Host: 127.0.0.1
+-- Generation Time: Nov 11, 2019 at 02:57 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.1.25
 
-CREATE DATABASE 'tp_final';
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
@@ -20,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `tp_final`
+-- Database: `restaurante`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `encargados`
+-- Table structure for table `encargados`
 --
 
 CREATE TABLE `encargados` (
@@ -34,12 +33,12 @@ CREATE TABLE `encargados` (
   `nombre` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,
   `idRol` int(2) NOT NULL,
   `clave` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Volcado de datos para la tabla `encargados`
+-- Dumping data for table `encargados`
 --
 
 INSERT INTO `encargados` (`id`, `nombre`, `idRol`, `clave`, `updated_at`, `created_at`) VALUES
@@ -52,18 +51,18 @@ INSERT INTO `encargados` (`id`, `nombre`, `idRol`, `clave`, `updated_at`, `creat
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `estados_mesa`
+-- Table structure for table `estados_mesa`
 --
 
 CREATE TABLE `estados_mesa` (
   `id` int(11) NOT NULL,
   `descripcion` varchar(40) COLLATE utf8_spanish2_ci NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Volcado de datos para la tabla `estados_mesa`
+-- Dumping data for table `estados_mesa`
 --
 
 INSERT INTO `estados_mesa` (`id`, `descripcion`, `updated_at`, `created_at`) VALUES
@@ -75,18 +74,18 @@ INSERT INTO `estados_mesa` (`id`, `descripcion`, `updated_at`, `created_at`) VAL
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `estados_pedidos`
+-- Table structure for table `estados_pedidos`
 --
 
 CREATE TABLE `estados_pedidos` (
   `id` int(11) NOT NULL,
   `descripcion` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Volcado de datos para la tabla `estados_pedidos`
+-- Dumping data for table `estados_pedidos`
 --
 
 INSERT INTO `estados_pedidos` (`id`, `descripcion`, `updated_at`, `created_at`) VALUES
@@ -96,18 +95,18 @@ INSERT INTO `estados_pedidos` (`id`, `descripcion`, `updated_at`, `created_at`) 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `estados_productos`
+-- Table structure for table `estados_productos`
 --
 
 CREATE TABLE `estados_productos` (
   `id` int(11) NOT NULL,
   `descripcion` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Volcado de datos para la tabla `estados_productos`
+-- Dumping data for table `estados_productos`
 --
 
 INSERT INTO `estados_productos` (`id`, `descripcion`, `updated_at`, `created_at`) VALUES
@@ -118,19 +117,19 @@ INSERT INTO `estados_productos` (`id`, `descripcion`, `updated_at`, `created_at`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `mesas`
+-- Table structure for table `mesas`
 --
 
 CREATE TABLE `mesas` (
   `id` int(11) NOT NULL,
   `codigoMesa` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,
   `idEstadoMesa` int(2) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Volcado de datos para la tabla `mesas`
+-- Dumping data for table `mesas`
 --
 
 INSERT INTO `mesas` (`id`, `codigoMesa`, `idEstadoMesa`, `updated_at`, `created_at`) VALUES
@@ -142,7 +141,7 @@ INSERT INTO `mesas` (`id`, `codigoMesa`, `idEstadoMesa`, `updated_at`, `created_
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pedidos`
+-- Table structure for table `pedidos`
 --
 
 CREATE TABLE `pedidos` (
@@ -150,25 +149,18 @@ CREATE TABLE `pedidos` (
   `idEstadoPedido` int(2) NOT NULL,
   `codigoMesa` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
   `idEncargado` int(2) NOT NULL,
+  `productos` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
   `nombreCliente` varchar(40) COLLATE utf8_spanish2_ci NOT NULL,
   `imagen` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
   `tiempo` int(4) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
---
--- Volcado de datos para la tabla `pedidos`
---
-
-INSERT INTO `pedidos` (`id`, `idEstadoPedido`, `codigoMesa`, `idEncargado`, `nombreCliente`, `imagen`, `tiempo`, `updated_at`, `created_at`) VALUES
-(1, 1, 'MESA1', 5, 'El pepo', 'pepo.jpg', 33, '2019-11-09 20:09:42', '2019-11-09 20:09:42'),
-(2, 1, 'MESA2', 3, 'El papolin', 'papolin.jpg', 36, '2019-11-09 20:10:20', '2019-11-09 20:10:20');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `productos`
+-- Table structure for table `productos`
 --
 
 CREATE TABLE `productos` (
@@ -177,12 +169,12 @@ CREATE TABLE `productos` (
   `precio` int(10) NOT NULL,
   `idRol` int(11) NOT NULL,
   `tiempoPreparacion` int(11) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Volcado de datos para la tabla `productos`
+-- Dumping data for table `productos`
 --
 
 INSERT INTO `productos` (`id`, `descripcion`, `precio`, `idRol`, `tiempoPreparacion`, `updated_at`, `created_at`) VALUES
@@ -206,29 +198,31 @@ INSERT INTO `productos` (`id`, `descripcion`, `precio`, `idRol`, `tiempoPreparac
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `productos_pedidos`
+-- Table structure for table `productos_pedidos`
 --
 
 CREATE TABLE `productos_pedidos` (
-  `idPedidos` int(11) NOT NULL,
-  `idProductos` int(11) NOT NULL
+  `idPedido` int(11) NOT NULL,
+  `idProducto` int(11) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `roles`
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
   `id` int(11) NOT NULL,
   `cargo` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Volcado de datos para la tabla `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`id`, `cargo`, `updated_at`, `created_at`) VALUES
@@ -241,7 +235,7 @@ INSERT INTO `roles` (`id`, `cargo`, `updated_at`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tickets`
+-- Table structure for table `tickets`
 --
 
 CREATE TABLE `tickets` (
@@ -250,117 +244,117 @@ CREATE TABLE `tickets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `encargados`
+-- Indexes for table `encargados`
 --
 ALTER TABLE `encargados`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `estados_mesa`
+-- Indexes for table `estados_mesa`
 --
 ALTER TABLE `estados_mesa`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `estados_pedidos`
+-- Indexes for table `estados_pedidos`
 --
 ALTER TABLE `estados_pedidos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `estados_productos`
+-- Indexes for table `estados_productos`
 --
 ALTER TABLE `estados_productos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `mesas`
+-- Indexes for table `mesas`
 --
 ALTER TABLE `mesas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `pedidos`
+-- Indexes for table `pedidos`
 --
 ALTER TABLE `pedidos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `productos`
+-- Indexes for table `productos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `roles`
+-- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `tickets`
+-- Indexes for table `tickets`
 --
 ALTER TABLE `tickets`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `encargados`
+-- AUTO_INCREMENT for table `encargados`
 --
 ALTER TABLE `encargados`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de la tabla `estados_mesa`
+-- AUTO_INCREMENT for table `estados_mesa`
 --
 ALTER TABLE `estados_mesa`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de la tabla `estados_pedidos`
+-- AUTO_INCREMENT for table `estados_pedidos`
 --
 ALTER TABLE `estados_pedidos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `estados_productos`
+-- AUTO_INCREMENT for table `estados_productos`
 --
 ALTER TABLE `estados_productos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `mesas`
+-- AUTO_INCREMENT for table `mesas`
 --
 ALTER TABLE `mesas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `pedidos`
+-- AUTO_INCREMENT for table `pedidos`
 --
 ALTER TABLE `pedidos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `productos`
+-- AUTO_INCREMENT for table `productos`
 --
 ALTER TABLE `productos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT de la tabla `roles`
+-- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `tickets`
+-- AUTO_INCREMENT for table `tickets`
 --
 ALTER TABLE `tickets`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;

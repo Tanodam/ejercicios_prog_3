@@ -8,7 +8,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 class Pedido extends \Illuminate\Database\Eloquent\Model{
     protected $idEstadoPedido;
     protected $codigoMesa;
-    protected $idProductos;
+    protected $productos;
     protected $idEncargado;
     protected $nombreCliente;
     protected $imagen;
