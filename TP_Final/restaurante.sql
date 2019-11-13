@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-11-2019 a las 21:06:17
+-- Tiempo de generación: 12-11-2019 a las 21:08:31
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.1.25
 
@@ -31,8 +31,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `encargados` (
   `id` int(11) NOT NULL,
   `nombre` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,
-  `apellido` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,
-  `usuario` varchar(10) COLLATE utf8_spanish2_ci NOT NULL,
   `idRol` int(2) NOT NULL,
   `clave` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -43,14 +41,12 @@ CREATE TABLE `encargados` (
 -- Volcado de datos para la tabla `encargados`
 --
 
-INSERT INTO `encargados` (`id`, `nombre`, `apellido`, `usuario`, `idRol`, `clave`, `updated_at`, `created_at`) VALUES
-(1, 'Damian', 'Desario', 'ddesario', 3, '1234', '2019-11-13 18:41:26', '2019-11-09 19:16:41'),
-(2, 'Luan', 'Perezz', 'lperezz', 1, '12345', '2019-11-13 18:59:16', '2019-11-09 19:18:26'),
-(3, 'Pepe', '', '', 2, '1234', '2019-11-09 19:18:37', '2019-11-09 19:18:37'),
-(4, 'Lorenzo', '', '', 4, '1234', '2019-11-09 19:18:47', '2019-11-09 19:18:47'),
-(5, 'Leandro', '', '', 5, '1234', '2019-11-09 19:18:55', '2019-11-09 19:18:55'),
-(7, 'Cris', 'Carmago', 'ccarmago', 1, '1234', '2019-11-13 19:07:34', '2019-11-13 19:07:34'),
-(8, 'Fernando', 'Cardonato', 'fcardonato', 1, '1234', '2019-11-13 23:50:44', '2019-11-13 23:27:34');
+INSERT INTO `encargados` (`id`, `nombre`, `idRol`, `clave`, `updated_at`, `created_at`) VALUES
+(1, 'Damian', 3, '1234', '2019-11-09 19:16:41', '2019-11-09 19:16:41'),
+(2, 'Juan', 1, '1234', '2019-11-09 19:18:26', '2019-11-09 19:18:26'),
+(3, 'Pepe', 2, '1234', '2019-11-09 19:18:37', '2019-11-09 19:18:37'),
+(4, 'Lorenzo', 4, '1234', '2019-11-09 19:18:47', '2019-11-09 19:18:47'),
+(5, 'Leandro', 5, '1234', '2019-11-09 19:18:55', '2019-11-09 19:18:55');
 
 -- --------------------------------------------------------
 
@@ -317,7 +313,7 @@ ALTER TABLE `tickets`
 -- AUTO_INCREMENT de la tabla `encargados`
 --
 ALTER TABLE `encargados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `estados_mesa`
@@ -353,7 +349,7 @@ ALTER TABLE `pedidos`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
