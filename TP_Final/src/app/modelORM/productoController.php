@@ -17,7 +17,7 @@ class productoController implements IApiControler
     public function TraerTodos($request, $response, $args)
     {
         $todosLosProductos = Producto::all();
-        if($todosLosProductos != null)
+        if(count($todosLosProductos) > 0) 
         {
             $newResponse = $response->withJson($todosLosProductos, 200);
         }
@@ -86,6 +86,10 @@ class productoController implements IApiControler
         }
         if (array_key_exists("precio", $arrayDeParametros) && $id != null && $producto != null) {
             $producto->precio = $arrayDeParametros["precio"];
+            $contadorModificaciones++;
+        }
+        if (array_key_exists("tipo", $arrayDeParametros) && $id != null && $producto != null) {
+            $producto->tipo = $arrayDeParametros["tipo"];
             $contadorModificaciones++;
         }
         if (array_key_exists("idRol", $arrayDeParametros) && $id != null && $producto != null) {

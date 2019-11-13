@@ -3,6 +3,10 @@
 use Slim\App;
 use Slim\Http\Request;
 use Slim\Http\Response;
+use App\Models\AutentificadorJWT;
+
+
+include_once __DIR__ . './app/modelAPI/AutentificadorJWT.php';
 
 return function (App $app) {
   
@@ -97,11 +101,6 @@ function detect()
 }
 
 
-
-
-
-
-
 	$app->add(function ($req, $res, $next) {
 	    $response = $next($req, $res);
 	    return $response
@@ -110,3 +109,4 @@ function detect()
 	        ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
 	});
 };
+

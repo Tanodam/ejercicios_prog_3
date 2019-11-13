@@ -26,12 +26,9 @@ class pedidoController implements IApiControler
   public function TraerTodos($request, $response, $args)
   {
     $todosLasPedidos = Pedido::all();
-    if($todosLasPedidos != null)
-    {
+    if (count($todosLasPedidos) > 0) {
       $newResponse = $response->withJson($todosLasPedidos, 200);
-    }
-    else
-    {
+    } else {
       $newResponse = $response->withJson("No hay pedidos", 200);
     }
     return $newResponse;
@@ -41,12 +38,9 @@ class pedidoController implements IApiControler
     //complete el codigo
     $id = $args["id"];
     $pedido = Pedido::find($id);
-    if($pedido != null)
-    {
+    if ($pedido != null) {
       $newResponse = $response->withJson($pedido, 200);
-    }
-    else
-    {
+    } else {
       $newResponse = $response->withJson("No existe pedido con ese ID", 200);
     }
     return $newResponse;
@@ -54,44 +48,43 @@ class pedidoController implements IApiControler
 
   public function CargarUno($request, $response, $args)
   {
+    $tiempo = 0;
     $productoExistente = null;
     $arrayDeProductosExistentes = "";
     $arrayDeParametros = $request->getParsedBody();
     $pedidoNuevo = new Pedido;
     $pedidoNuevo->idEstadoPedido = 1;
     $pedidoNuevo->codigoMesa = $arrayDeParametros["codigoMesa"];
+    $pedidoNuevo->codigoPedido = pedidoController::generarCodigoTicket();
     $pedidoNuevo->productos = $arrayDeParametros["productos"];
     $pedidoNuevo->idEncargado = $arrayDeParametros["idEncargado"];
     $pedidoNuevo->nombreCliente = $arrayDeParametros["nombreCliente"];
     $archivos = $request->getUploadedFiles();
     $pedidoNuevo->imagen = $archivos["imagen"]->file;
-    $pedidoNuevo->tiempo  = $arrayDeParametros["tiempo"];
+    $pedidoNuevo->tiempo  = 1;
     $pedidoNuevo->save();
     $idPedidoCargado = $pedidoNuevo->id;
     $productos = explode(",", $arrayDeParametros["productos"]);
     for ($i = 0; $i < count($productos); $i++) {
       $productoExistente = Producto::find($productos[$i]);
-      if($productoExistente != null)
-      {
-        if($i == 0)
-        {
-          $arrayDeProductosExistentes = $arrayDeProductosExistentes.$productos[$i];
-        }
-        else
-        {
-          $arrayDeProductosExistentes = $arrayDeProductosExistentes . ",".$productos[$i];
+      if ($productoExistente != null) {
+        if ($i == 0) {
+          $arrayDeProductosExistentes = $arrayDeProductosExistentes . $productos[$i];
+        } else if (empty($arrayDeProductosExistentes)) {
+          $arrayDeProductosExistentes = $arrayDeProductosExistentes . $productos[$i];
+        } else {
+          $arrayDeProductosExistentes = $arrayDeProductosExistentes . "," . $productos[$i];
         }
         $pedido_producto = new pedido_producto;
         $pedido_producto->idPedido = $idPedidoCargado;
         $pedido_producto->idProducto = $productos[$i];
+        $pedido_producto->idEstadoProducto = 1;
         $pedido_producto->save();
       }
-      else{
-        echo 'El producto '. $productos[$i] . ' no existe';
-      }
-    }
+    } 
     //Actualizado la verdadera cantidad de productos existentes
     $pedidoNuevo->productos = $arrayDeProductosExistentes;
+    $pedidoNuevo->tiempo = $tiempo;
     $pedidoNuevo->save();
     $newResponse = $response->withJson('Pedido ' . $idPedidoCargado . ' cargado', 200);
     return $newResponse;
@@ -101,14 +94,11 @@ class pedidoController implements IApiControler
     $parametros = $request->getParsedBody();
     $id = $parametros['id'];
     $pedido = Pedido::find($id);
-    if($pedido != null)
-    {
+    if ($pedido != null) {
       $pedido->delete();
       pedido_producto::where("idPedido", "=", $id)->delete();
       $newResponse = $response->withJson('Pedido ' . $id . ' borrado', 200);
-    }
-    else
-    {
+    } else {
       $newResponse = $response->withJson('El pedido no existe', 200);
     }
     return $newResponse;
@@ -141,6 +131,7 @@ class pedidoController implements IApiControler
         $pedido_producto = new pedido_producto;
         $pedido_producto->idPedido = $pedido->id;
         $pedido_producto->idProducto = $productos[$i];
+        $pedido_producto->idEstadoProducto = 1;
         $pedido_producto->save();
       }
     }
@@ -176,5 +167,17 @@ class pedidoController implements IApiControler
       $newResponse = $response->withJson("No se ha modificado ningun campo ", 200);
     }
     return $newResponse;
+  }
+
+  public function generarCodigoTicket()
+  {
+    $length = 5;
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+      $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
   }
 }
