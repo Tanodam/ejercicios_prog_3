@@ -97,7 +97,7 @@ class encargadoController implements IApiControler
             $contadorModificaciones++;
         }
         if (array_key_exists("usuario", $arrayDeParametros) && $id != null && $encargado != null) {
-            echo("No se puede modificar el usuario");
+            $encargado->usuario = (strtolower(substr($encargado->nombre, 0, 1)) . strtolower($encargado->apellido));
             $contadorModificaciones++;
         }
         if (array_key_exists("idRol", $arrayDeParametros) && $id != null && $encargado != null) {

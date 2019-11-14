@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-11-2019 a las 21:08:31
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.1.25
+-- Tiempo de generación: 14-11-2019 a las 16:39:00
+-- Versión del servidor: 10.4.8-MariaDB
+-- Versión de PHP: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,22 +31,25 @@ SET time_zone = "+00:00";
 CREATE TABLE `encargados` (
   `id` int(11) NOT NULL,
   `nombre` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,
+  `apellido` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,
+  `usuario` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
   `idRol` int(2) NOT NULL,
   `clave` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `encargados`
 --
 
-INSERT INTO `encargados` (`id`, `nombre`, `idRol`, `clave`, `updated_at`, `created_at`) VALUES
-(1, 'Damian', 3, '1234', '2019-11-09 19:16:41', '2019-11-09 19:16:41'),
-(2, 'Juan', 1, '1234', '2019-11-09 19:18:26', '2019-11-09 19:18:26'),
-(3, 'Pepe', 2, '1234', '2019-11-09 19:18:37', '2019-11-09 19:18:37'),
-(4, 'Lorenzo', 4, '1234', '2019-11-09 19:18:47', '2019-11-09 19:18:47'),
-(5, 'Leandro', 5, '1234', '2019-11-09 19:18:55', '2019-11-09 19:18:55');
+INSERT INTO `encargados` (`id`, `nombre`, `apellido`, `usuario`, `idRol`, `clave`, `updated_at`, `created_at`) VALUES
+(1, 'Damian', 'Desario', 'ddesario', 3, '1234', '2019-11-14 19:09:52', '2019-11-09 19:16:41'),
+(2, 'Juan', 'Perez', 'jperez', 1, '1234', '2019-11-14 19:10:10', '2019-11-09 19:18:26'),
+(3, 'Pepe', 'Argento', 'pargento', 2, '1234', '2019-11-14 19:10:24', '2019-11-09 19:18:37'),
+(4, 'Lorenzo', 'Cristalli', 'lcristalli', 4, '1234', '2019-11-14 19:10:37', '2019-11-09 19:18:47'),
+(5, 'Leandro', 'Egea', 'legea', 5, '1234', '2019-11-14 19:10:51', '2019-11-09 19:18:55'),
+(6, 'Rober', 'Piombi', 'ppiombi', 1, '1234', '2019-11-14 19:36:29', '2019-11-14 19:36:29');
 
 -- --------------------------------------------------------
 
@@ -57,8 +60,8 @@ INSERT INTO `encargados` (`id`, `nombre`, `idRol`, `clave`, `updated_at`, `creat
 CREATE TABLE `estados_mesa` (
   `id` int(11) NOT NULL,
   `descripcion` varchar(40) COLLATE utf8_spanish2_ci NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
@@ -80,8 +83,8 @@ INSERT INTO `estados_mesa` (`id`, `descripcion`, `updated_at`, `created_at`) VAL
 CREATE TABLE `estados_pedidos` (
   `id` int(11) NOT NULL,
   `descripcion` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
@@ -101,8 +104,8 @@ INSERT INTO `estados_pedidos` (`id`, `descripcion`, `updated_at`, `created_at`) 
 CREATE TABLE `estados_productos` (
   `id` int(11) NOT NULL,
   `descripcion` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
@@ -124,8 +127,8 @@ CREATE TABLE `mesas` (
   `id` int(11) NOT NULL,
   `codigoMesa` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,
   `idEstadoMesa` int(2) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
@@ -154,8 +157,8 @@ CREATE TABLE `pedidos` (
   `nombreCliente` varchar(40) COLLATE utf8_spanish2_ci NOT NULL,
   `imagen` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
   `tiempo` int(4) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
@@ -171,8 +174,8 @@ CREATE TABLE `productos` (
   `precio` int(10) NOT NULL,
   `idRol` int(11) NOT NULL,
   `tiempoPreparacion` int(11) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
@@ -208,8 +211,8 @@ CREATE TABLE `productos_pedidos` (
   `idPedido` int(11) NOT NULL,
   `idProducto` int(11) NOT NULL,
   `idEstadoProducto` int(2) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
@@ -221,8 +224,8 @@ CREATE TABLE `productos_pedidos` (
 CREATE TABLE `roles` (
   `id` int(11) NOT NULL,
   `cargo` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
@@ -313,7 +316,7 @@ ALTER TABLE `tickets`
 -- AUTO_INCREMENT de la tabla `encargados`
 --
 ALTER TABLE `encargados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `estados_mesa`

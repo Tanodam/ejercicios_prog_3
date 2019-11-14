@@ -15,7 +15,8 @@ return function (App $app) {
 
     $app->group('/encargados', function () {
 
-        $this->post('/', encargadoController::class . ':CargarUno')->add(Middleware::class . ":EsSocio");
+        $this->post('/', encargadoController::class . ':CargarUno')->add(Middleware::class . ":EsSocio")
+                                                                    ->add(Middleware::class . ":validarToken");
 
         $this->post('/logIn', encargadoController::class . ':IniciarSesion');
 
