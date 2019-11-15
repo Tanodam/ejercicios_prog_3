@@ -3,11 +3,11 @@
 namespace App\Models\ORM;
 
 use App\Models\AutentificadorJWT;
-use App\Models\ORM\Encargado;
-use App\Models\IApiControler;
+use App\Models\ORM\Mesa;
+use App\Models\IApiControler;   
 
 
-include_once __DIR__ . '/encargado.php';
+include_once __DIR__ . '/mesa.php';
 include_once __DIR__ . '../../modelAPI/AutentificadorJWT.php';
 include_once __DIR__ . '../../modelAPI/IApiControler.php';
 
@@ -17,47 +17,67 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 
-class encargadoController implements IApiControler
+class mesaController implements IApiControler
 {
     public function TraerTodos($request, $response, $args)
     {
-        $todosLosEncargados = Encargado::where("idRol", "!=", 0)
-            ->join('roles', 'encargados.idRol', 'roles.id')
-            ->select("encargados.id", "nombre", "apellido", "idRol", "cargo")
-            ->get();
-
-        echo ($todosLosEncargados);
-        if (count($todosLosEncargados) > 0) {
-            $newResponse = $response->withJson($todosLosEncargados, 200);
-        } else {
-            $newResponse = $response->withJson("No hay encargados", 200);
+        $todasLasMesas = Encargado::all();
+        if(count($todasLasMesas) > 0) 
+        {
+            $newResponse = $response->withJson($todasLasMesas, 200);
+        }
+        else{
+            $newResponse = $response->withJson("No hay mesas", 200);
         }
         return $newResponse;
+    }
+    public function obtenerMesaLibre()
+    {
+
+        $mesaLibre = Mesa::where("idEstadoMesa", "=", "4")
+        ->select("codigoMesa")
+        ->first();
+        
+        if($mesaLibre != null)
+        {
+            $newResponse = $mesaLibre->codigoMesa;
+            self::cambiarEstado($mesaLibre->codigoMesa, 1);
+        }
+        else
+        {
+            $newResponse = null;
+        }
+        return $newResponse;
+    }
+    public function cambiarEstado($codigoMesa,$nuevoEstado){
+        $mesa=mesa::where('codigoMesa','=',$codigoMesa)->first();
+        $mesa->idEstadoMesa=$nuevoEstado;
+        $mesa->save();
     }
     public function TraerUno($request, $response, $args)
     {
         $id = $args["id"];
-        $encargado = Encargado::find($id);
-        if ($encargado != null) {
-            $newResponse = $response->withJson($encargado, 200);
-        } else {
-            $newResponse = $response->withJson("No existe encargado con ese ID", 200);
+        $mesa = Encargado::find($id);
+        if(count($mesa) > 0) 
+        {
+            $newResponse = $response->withJson($mesa, 200);
+        }
+        else{
+            $newResponse = $response->withJson("No hay mesa con ese ID", 200);
         }
         return $newResponse;
     }
 
     public function CargarUno($request, $response, $args)
     {
-        $arrayDeParametros = $request->getParsedBody();
-        $encargadoNuevo = new Encargado;
-        $encargadoNuevo->nombre = $arrayDeParametros["nombre"];
-        $encargadoNuevo->apellido = $arrayDeParametros["apellido"];
-        $encargadoNuevo->usuario = strtolower(substr($arrayDeParametros["apellido"], 0, 1)) . strtolower($arrayDeParametros["apellido"]);
-        $encargadoNuevo->clave = $arrayDeParametros["clave"];
-        $encargadoNuevo->idRol = $arrayDeParametros["idRol"];
-        $encargadoNuevo->save();
-        $idEncargadoCargado = $encargadoNuevo->id;
-        $newResponse = $response->withJson('Encargado ' . $encargadoNuevo->usuario . ' cargado', 200);
+        $mesa = new Mesa;
+        $mesa->codigoMesa = " ";
+        $mesa->idEstadoMesa = 4;
+        $mesa->save();
+        $mesa->codigoMesa = "MESA-".$mesa->id;
+        $mesa->save();
+        //$idEncargadoCargado = $encargadoNuevo->id;
+        $newResponse = $response->withJson('Mesa ' . $mesa->codigoMesa. ' cargada', 200);
         return $newResponse;
     }
     public function BorrarUno($request, $response, $args)
@@ -66,10 +86,12 @@ class encargadoController implements IApiControler
         $id = $parametros['id'];
         $encargado = Encargado::find($id);
         print("Este " . $encargado);
-        if ($encargado != null) {
+        if($encargado != null)
+        {
             $encargado->delete();
             $newResponse = $response->withJson('Encargado ' . $id . ' borrado', 200);
-        } else {
+        }
+        else{
             $newResponse = $response->withJson('El encargado no existe', 200);
         }
         return $newResponse;
@@ -101,7 +123,7 @@ class encargadoController implements IApiControler
         }
         if (array_key_exists("idRol", $arrayDeParametros) && $id != null && $encargado != null) {
             $encargado->idRol = $arrayDeParametros["idRol"];
-            $contadorModificaciones++;
+            $contadorModificaciones++;  
         }
         if (array_key_exists("clave", $arrayDeParametros) && $id != null && $encargado != null) {
             $encargado->clave = $arrayDeParametros["clave"];
@@ -112,11 +134,11 @@ class encargadoController implements IApiControler
             $newResponse = $response->withJson('Encargado ' . $encargado->usuario . ' modificado', 200);
         } else if ($id == null) {
             $newResponse = $response->withJson('No se introducido un id valido', 200);
-        } else if ($id != null && $encargado == null) {
+          } else if ($id != null && $encargado == null) {
             $newResponse = $response->withJson("No hay un encargado con ese ID", 200);
-        } else {
+          } else {
             $newResponse = $response->withJson("No se ha modificado ningun campo ", 200);
-        }
+          }
         return $newResponse;
     }
 
@@ -124,19 +146,23 @@ class encargadoController implements IApiControler
     {
         $arrayDeParametros = $request->getParsedBody();
 
-        $encargado = Encargado::where('usuario', '=', $arrayDeParametros["usuario"])
-            ->join('roles', 'encargados.idRol', 'roles.id')
-            ->select("encargados.id","nombre", "apellido", "usuario", "clave", "idRol", "cargo")
-            ->get()
-            ->toArray();
+        $encargado=Encargado::where('usuario','=',$arrayDeParametros["usuario"])
+        ->join('roles','encargados.idRol','roles.id')
+        ->get()
+        ->toArray();
 
-
-        if (count($encargado) == 1 && $encargado[0]["clave"] == $arrayDeParametros["clave"]) {
-            unset($encargado[0]["clave"]);
+        unset($encargado[0]["created_at"],$encargado[0]["updated_at"]);
+        
+        if(count($encargado) == 1 && $encargado[0]["clave"] == $arrayDeParametros["clave"])
+        {
+            unset($encargado[0]["clave"], $encargado[0]["idRol"]);
 
             $token = AutentificadorJWT::CrearToken($encargado[0]);
             $newResponse = $response->withJson($token, 200);
-        } else {
+
+        }
+        else
+        {
             $newResponse = $response->withJson("Nop", 200);
         }
 

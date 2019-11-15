@@ -11,7 +11,8 @@ return function (App $app) {
 
     $app->group('/pedidos', function () {
 
-        $this->post('/', pedidoController::class . ':CargarUno');
+        $this->post('/', pedidoController::class . ':CargarUno')->add(Middleware::class . ":EsMozo")
+        ->add(Middleware::class . ":validarToken");
 
         $this->post('/baja', pedidoController::class . ':BorrarUno');
         
@@ -19,6 +20,6 @@ return function (App $app) {
         
         $this->get('/', pedidoController::class . ':TraerTodos');
         
-        $this->get('/{id}', pedidoController::class . ':TraerUno');
+        $this->get('/traerUno', pedidoController::class . ':TraerUno');
     });
 };

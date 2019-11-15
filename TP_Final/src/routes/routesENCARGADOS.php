@@ -4,11 +4,12 @@ use Slim\App;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use App\Models\ORM\encargadoController;
-use App\Models\ORM\Middleware;
+
 
 
 include_once __DIR__ . '/../../src/app/modelORM/encargadoController.php';
-include_once __DIR__ . '/../../src/app/modelORM/middleware.php';
+//include_once __DIR__ . '/../../src/app/modelORM/middleware.php';
+include_once __DIR__ . '/../../src/middleware.php';
 
 return function (App $app) {
 

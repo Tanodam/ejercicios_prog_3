@@ -35,6 +35,10 @@ return function (App $app) {
     $routes = require __DIR__ . '/../src/routes/routesENCARGADOS.php';
     $routes($app);
 
+        // Rutas MESAS
+        $routes = require __DIR__ . '/../src/routes/routesMESAS.php';
+        $routes($app);
+
 
 
 
