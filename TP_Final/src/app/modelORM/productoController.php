@@ -2,6 +2,7 @@
 
 namespace App\Models\ORM;
 
+use App\Models\AutentificadorJWT;
 use App\Models\ORM\Producto;
 use App\Models\IApiControler;
 
@@ -111,5 +112,13 @@ class productoController implements IApiControler
             $newResponse = $response->withJson("No se ha modificado ningun campo ", 200);
           }
         return $newResponse;
+    }
+
+    public function servirProdcuto($request, $response)
+    {
+        $arrayDeParametros = $request->getParsedBody();
+        $token = AutentificadorJWT::ObtenerData($arrayDeParametros["token"]);
+
+        //$pedido_producto = pedido::where()
     }
 }

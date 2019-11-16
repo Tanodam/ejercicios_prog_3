@@ -26,7 +26,7 @@ class encargadoController implements IApiControler
             ->select("encargados.id", "nombre", "apellido", "idRol", "cargo")
             ->get();
 
-        echo ($todosLosEncargados);
+
         if (count($todosLosEncargados) > 0) {
             $newResponse = $response->withJson($todosLosEncargados, 200);
         } else {
@@ -120,7 +120,7 @@ class encargadoController implements IApiControler
         return $newResponse;
     }
 
-    public function IniciarSesion($request, $response, $args)
+    public function IniciarSesion($request, $response)
     {
         $arrayDeParametros = $request->getParsedBody();
 
@@ -142,4 +142,6 @@ class encargadoController implements IApiControler
 
         return $newResponse;
     }
+    
+
 }

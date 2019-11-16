@@ -123,11 +123,19 @@ class pedidoController implements IApiControler
         }
       }
       /*/////////////////////////---FIN DEL FOR-----///////////////////////////*/
-
-      $pedidoNuevo->productos = $arrayDeProductosExistentes; //Actualizado la verdadera cantidad de productos existentes
-      $pedidoNuevo->tiempo = $tiempo; //Guardo el tiempo real del pedido
-      $pedidoNuevo->save();
-      $newResponse = $response->withJson('Pedido ' . $pedidoNuevo->codigoPedido . "-" . $pedidoNuevo->codigoMesa . ' cargado', 200);
+      if(strlen($arrayDeProductosExistentes) > 0 )
+      {
+        $pedidoNuevo->productos = $arrayDeProductosExistentes; //Actualizado la verdadera cantidad de productos existentes
+        $pedidoNuevo->tiempo = $tiempo; //Guardo el tiempo real del pedido
+        $pedidoNuevo->save();
+        $newResponse = $response->withJson('Pedido ' . $pedidoNuevo->codigoPedido . "-" . $pedidoNuevo->codigoMesa . ' cargado', 200);
+      }
+      else{
+        mesaController::cambiarEstado($pedidoNuevo->codigoMesa,4);
+        pedido_producto::where("idPedido", "=", $idPedidoCargado)->delete();
+        $pedidoNuevo->delete();
+        $newResponse = $response->withJson('No se puede cargar un pedido sin productos. Pedido eliminado', 200);
+      }
       
     }
     else{
@@ -226,4 +234,26 @@ class pedidoController implements IApiControler
     }
     return $randomString;
   }
+
+  /*public function verPedidosPendientes($request, $response)
+  {
+    $arrayDeParametros = $request->getParams();
+    $token = AutentificadorJWT::ObtenerData(($arrayDeParametros["token"]));
+    
+
+    $pendientes = Pedido::where("idEncargado", "=",$token->idRol)
+    ->join('productos_pedidos', "pedidos.id",'productos_pedidos.idPedido')
+    ->join('roles', 'pedidos.idEncargado', 'roles.id')
+    ->join('productos', 'productos_pedidos.idProducto', 'productos.id')
+    ->join('estados_productos', 'productos_pedidos.idEstadoProducto', 'estados_productos.id')
+    ->select('roles.cargo','pedidos.codigoPedido','pedidos.codigoMesa', 'productos.descripcion', 'estados_productos.estado')
+    ->get()
+    ->toArray();
+
+    $newResponse = $response->withJson($pendientes, 200);
+
+    return $newResponse;
+
+  }
+  */
 }

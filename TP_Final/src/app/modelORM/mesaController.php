@@ -33,7 +33,6 @@ class mesaController implements IApiControler
     }
     public function obtenerMesaLibre()
     {
-
         $mesaLibre = Mesa::where("idEstadoMesa", "=", "4")
         ->select("codigoMesa")
         ->first();
@@ -57,8 +56,8 @@ class mesaController implements IApiControler
     public function TraerUno($request, $response, $args)
     {
         $id = $args["id"];
-        $mesa = Encargado::find($id);
-        if(count($mesa) > 0) 
+        $mesa = Mesa::find($id);
+        if(count((array)$mesa) > 0) 
         {
             $newResponse = $response->withJson($mesa, 200);
         }

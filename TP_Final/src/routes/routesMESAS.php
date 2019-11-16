@@ -20,5 +20,7 @@ return function (App $app) {
         $this->get('/', mesaController::class . ':TraerTodos');
         
         $this->get('/obtenerMesaLibre', mesaController::class . ':obtenerMesaLibre');
+        
+        $this->get('/{id}', mesaController::class . ':TraerUno');
     });
 };
