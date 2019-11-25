@@ -1,2 +1,0 @@
-1. Primero descargar composer.exe, instalarlo y listo
-2. Desde bash descargar composer require slim/slim:^3.2

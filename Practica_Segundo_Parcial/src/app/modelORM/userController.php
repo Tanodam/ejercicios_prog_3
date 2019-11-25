@@ -18,29 +18,8 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 
-class userController implements IApiControler
+class userController
 {
-  public function Beinvenida($request, $response, $args)
-  {
-    $response->getBody()->write("GET => Bienvenido!!! ,a UTN FRA SlimFramework");
-
-    return $response;
-  }
-
-  public function TraerTodos($request, $response, $args)
-  {
-    //return cd::all()->toJson();
-    $todosLosCds = cd::all();
-    $newResponse = $response->withJson($todosLosCds, 200);
-    return $newResponse;
-  }
-  public function TraerUno($request, $response, $args)
-  {
-    //complete el codigo
-    $newResponse = $response->withJson("sin completar", 200);
-    return $newResponse;
-  }
-
   public function CargarUno($request, $response, $args)
   {
     $arrayDeParametros = $request->getParsedBody();
@@ -49,7 +28,8 @@ class userController implements IApiControler
     if (
       array_key_exists("email", $arrayDeParametros) && array_key_exists("clave", $arrayDeParametros)
       && array_key_exists("legajo", $arrayDeParametros) && array_key_exists("fotoUno", $arrayArchivos)
-      && array_key_exists("fotoDos", $arrayArchivos) && !User::where('legajo', '=', $arrayDeParametros["legajo"])->exists()) {
+      && array_key_exists("fotoDos", $arrayArchivos) && !User::where('legajo', '=', $arrayDeParametros["legajo"])->exists()
+      && !User::where('email', '=', $arrayDeParametros["email"])->exists()) {
 
         $user = new User;
         $user->email = $arrayDeParametros["email"];
@@ -81,20 +61,6 @@ class userController implements IApiControler
     }
     return $newResponse;
   }
-  public function BorrarUno($request, $response, $args)
-  {
-    //complete el codigo
-    $newResponse = $response->withJson("sin completar", 200);
-    return $newResponse;
-  }
-
-  public function ModificarUno($request, $response, $args)
-  {
-    //complete el codigo
-    $newResponse = $response->withJson("sin completar", 200);
-    return   $newResponse;
-  }
-
   public function IniciarSesion($request, $response)
   {
     $arrayDeParametros = $request->getParsedBody();
@@ -149,7 +115,6 @@ class userController implements IApiControler
       $egreso = new Egreso;
       $egreso->usuario = $data->email;
       $egreso->legajo = $data->legajo;
-      //Asi obtengo el ultimo Ingreso::where("usuario", "=", $data->email)->latest('created_at')->get()->first()->toArray();
       $contadorIngresos = Ingreso::where("usuario", "=", $data->email)->select('created_at')->get()->toArray();
       $contadorEgresos = Egreso::where("usuario", "=", $data->email)->select('created_at')->get()->toArray();
       //No se puede egresar un usuario si no existe un ingreso previo o si la cantidad de ingresos es menor a la de egresos

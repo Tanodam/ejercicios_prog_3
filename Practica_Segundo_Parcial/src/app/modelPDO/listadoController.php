@@ -38,8 +38,24 @@ class listadoController
         $rol = $data->rol;
         if($rol == "admin")
         {
-            $ingresos = Ingreso::select("created_at","usuario")->get()->toArray();
-            $newResponse = $response->withJson($ingresos, 200);
+            $usuarios = Ingreso::distinct()->get(["usuario"])->toArray();
+            if($usuarios != null)
+            {
+
+                for($i=0;$i<count($usuarios);$i++)
+                {
+                    $ingresos = Ingreso::where("usuario","=", $usuarios[$i]["usuario"])
+                    ->select("usuario","created_at")
+                    ->orderBy("created_at","desc")
+                    ->first()
+                    ->toArray();
+                    $ultimosIngresos[] = $ingresos;
+                }
+                $newResponse = $response->withJson($ultimosIngresos, 200);
+            }
+            else{
+                $newResponse = $response->withJson("No hay ingresos", 200);
+            }
         }
         else
         {

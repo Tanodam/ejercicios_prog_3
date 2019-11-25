@@ -1,4 +1,0 @@
-cat
-Herramientas a utilizar:
-Visual Studio Code
-XAMPP Control Panel v.3.2.3

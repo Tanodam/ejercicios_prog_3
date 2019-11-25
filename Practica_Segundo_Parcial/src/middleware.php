@@ -113,7 +113,6 @@ return function (App $app) {
 		->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
 	});
 };
-use App\Models\Exception;
 
 
 class Middleware
@@ -147,7 +146,6 @@ class Middleware
 		$dao = new genericDao("./info.json");
 		$dao->guardar($log);
 		$newResponse = $next($request, $response); // Se va a la funcion NEXT
-		//$newResponse->getbody()->write("Log Creado" . " USUARIO: ". $usuario);
 		return $newResponse;
 	}
 
@@ -171,29 +169,6 @@ class Middleware
 		}
 
 
-		return $newResponse;
-	}
-
-	public function devolverTipo($request, $response, $next)
-	{
-		$token = $request->getAttribute('tokenEnviado');
-
-		if (!empty($token)) {
-			try {
-				$data = AutentificadorJWT::ObtenerData($token);
-				if (count((array) $data) > 1) {
-					$request = $request->withAttribute('tokenEnviado', (array) $data);
-					$newResponse = $next($request, $response);
-				} else {
-					$newResponse = $response->withJson("Esta accion solo la puede cumplir un Profesor", 200);
-				}
-			} catch (Exception $e) {
-
-				$newResponse = $response->withJson("Ha ocurrido un error. Verificar", 200);
-			}
-		} else {
-			$newResponse = $response->withJson("No se ha redcibido un token. Verificar", 200);
-		}
 		return $newResponse;
 	}
 }
