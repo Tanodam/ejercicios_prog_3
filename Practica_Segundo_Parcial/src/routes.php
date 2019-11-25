@@ -14,7 +14,7 @@ return function (App $app) {
     // Rutas PDO
     $routes = require __DIR__ . '/../src/routes/routesPDO.php';
     $routes($app);
-    
+
 
     // Rutas ORM
     $routes = require __DIR__ . '/../src/routes/routesORM.php';
@@ -24,9 +24,13 @@ return function (App $app) {
     $routes = require __DIR__ . '/../src/routes/routesJWT.php';
     $routes($app);
 
-        // Rutas USUARIOS
-        $routes = require __DIR__ . '/../src/routes/routesUSERS.php';
-        $routes($app);
+    // Rutas USUARIOS
+    $routes = require __DIR__ . '/../src/routes/routesUSERS.php';
+    $routes($app);
+
+    // Rutas LOGIN
+    $routes = require __DIR__ . '/../src/routes/routesLOGIN.php';
+    $routes($app);
 
 
     $app->get('/[{name}]', function (Request $request, Response $response, array $args) use ($container) {
@@ -35,8 +39,4 @@ return function (App $app) {
         // $container->get('logger')->addCritical('Hey, a critical log entry!');
         return $container->get('renderer')->render($response, 'index.phtml', $args);
     });
-
-
-
-
 };
