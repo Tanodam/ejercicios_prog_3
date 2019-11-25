@@ -1,27 +1,31 @@
 <?php
     INCLUDE './clases/persona.php';
-    INCLUDE './clases/personaDao.php';
-
-   // $archivo = fopen("./prueba.txt", "a");
-   // $rta=fwrite($archivo,"hol1a");
-   // fclose($archivo);
-
+    INCLUDE './clases/genericDao.php';
 
     $request = ($_SERVER['REQUEST_METHOD']);
+    
+//     // var_dump($_POST);
+//  var_dump($_FILES);
 
-    $dao = new personaDao(".\prueba.txt");
-switch($request){
-    case "POST" : 
-        if(isset($_POST["Nombre"]) && isset($_POST["Apellido"]) && isset($_POST["Legajo"]))
-        {
-            $persona = new Persona($_POST["Nombre"], $_POST["Apellido"], $_POST["Legajo"]);
-            $dao->guardar($persona);    
+  $archivoTmp = $_FILES["imagen"]["name"];
+  //Maneras de obtener la extension
+  //$extension = pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION);
+//  echo "<br> $extension ";
+ 
+ $rta = move_uploaded_file($archivoTmp, "$archivoTmp");
 
-        }
-        break;
-    case "GET" :
-
-        break;
-       
+    $dao = new GenericDao('./prueba.txt');
+    
+    switch($request){
+        case "POST" : 
+            if(isset($_POST["Nombre"]) && isset($_POST["Apellido"]) && isset($_POST["Legajo"])&& isset($_POST["Imagen"])) {
+                $persona = new Persona($_POST["Nombre"], $_POST["Apellido"], $_POST["Legajo"], $_POST["Imagen"]);
+                $dao->guardar($persona);
+            }
+            break;
+        case "GET" : 
+            echo $dao->listar();
+            break;
         
-}
+    }
+?>
