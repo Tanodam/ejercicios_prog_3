@@ -1,29 +1,63 @@
 <?php
 
 namespace App\Models\ORM;
+
 use App\Models\ORM\Producto;
 use App\Models\ORM\pedido_producto;
-include_once __DIR__ . '/ticket_producto.php';
+use App\Models\ORM\Roles;
+
+include_once __DIR__ . '/pedido_producto.php';
+include_once __DIR__ . '/producto.php';
+include_once __DIR__ . '/roles.php';
 
 class pedido_productoController
 {
+    public function verPendientes($codigo, $encargado)
+    {
+        $rol = Roles::select('cargo')->where('roles.id', '=', $encargado)->get()->toArray();
+        $rol = $rol[0]["cargo"];
 
-    public function verPendientes($codigo,$encargadoID){
-        if($encargadoID==5){
-            $data=pedido_producto::join('productos','ticket_productos.producto','productos.id')
-            ->join('roles','roles.id','productos.encargado')
-            ->where('ticket_productos.estado','=','1')
-            ->where('codigo','=',$codigo)
-            ->get();    
-        }else{
-            $data=pedido_producto::join('productos','ticket_productos.producto','productos.id')
-            ->join('roles','roles.id','productos.encargado')
-            ->where('ticket_productos.estado','=','1')
-            ->where('productos.encargado','=',$encargadoID)
-            ->where('codigo','=',$codigo)
-            //->select(array('codigo','descripcion','puesto'))
-            ->get();
+        if ($rol == "socio") {
+            $data = pedido_producto::join('productos', 'productos_pedidos.idProducto', 'productos.id')
+                ->join('roles', 'roles.id', 'productos.idRol')
+                ->where('productos_pedidos.idEstadoProducto', '=', '1')
+                ->where('codigoPedido', '=', $codigo)
+                ->select('codigoPedido', 'productos.descripcion', 'cargo')
+                ->get();
+        } else {
+            $data = pedido_producto::join('productos', 'productos_pedidos.idProducto', 'productos.id')
+                ->join('roles', 'roles.id', 'productos.idRol')
+                ->where('productos_pedidos.idEstadoProducto', '=', '1')
+                ->where('productos.idRol', '=', $encargado)
+                ->where('codigoPedido', '=', $codigo)
+                ->select('codigoPedido', 'productos.descripcion', 'cargo')
+                ->get();
         }
         return $data;
+    }
+
+    public function cambiarEstado($codigo, $encargadoID, $estadoInicial, $estadoactual)
+    {
+        $ret = false;
+        $data = pedido_producto::where('idEstadoProducto', '=', $estadoInicial)
+            ->where('codigoPedido', '=', $codigo)
+            ->get();
+
+        foreach ($data as $value) {
+            $prod = Producto::where('id', '=', $value->idProducto)->first();
+
+            if($encargadoID == 3)
+            {
+                $value->idEstadoProducto = $estadoactual;
+                $value->save();
+                $ret = true;  
+            }
+            else if ($prod->idRol == $encargadoID) {
+                $value->idEstadoProducto = $estadoactual;
+                $value->save();
+                $ret = true;
+            }
+        }
+        return $ret;
     }
 }

@@ -114,11 +114,20 @@ class productoController implements IApiControler
         return $newResponse;
     }
 
-    public function servirProdcuto($request, $response)
+    public function verPendientes($request,$response,$args)
     {
-        $arrayDeParametros = $request->getParsedBody();
-        $token = AutentificadorJWT::ObtenerData($arrayDeParametros["token"]);
-
-        //$pedido_producto = pedido::where()
+        $token=$request->getHeader('token');
+        $arrayDeParametros= $request->getParams();
+        $datos=AutentificadorJWT::ObtenerData($token[0]);
+        $respuesta=pedido_productoController::verPendientes($arrayDeParametros["codigoPedido"],$datos->idRol);
+        if(count($respuesta) > 0)
+        {
+            $newResponse= $response->withJson($respuesta,200);
+        }
+        else
+        {
+            $newResponse= $response->withJson("No hay pedidos pendientes para el encargado",200);
+        }
+        return $newResponse;
     }
 }

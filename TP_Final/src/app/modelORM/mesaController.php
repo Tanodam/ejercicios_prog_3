@@ -48,11 +48,6 @@ class mesaController implements IApiControler
         }
         return $newResponse;
     }
-    public function cambiarEstado($codigoMesa,$nuevoEstado){
-        $mesa=mesa::where('codigoMesa','=',$codigoMesa)->first();
-        $mesa->idEstadoMesa=$nuevoEstado;
-        $mesa->save();
-    }
     public function TraerUno($request, $response, $args)
     {
         $id = $args["id"];
@@ -167,4 +162,20 @@ class mesaController implements IApiControler
 
         return $newResponse;
     }
+
+    public function cambiarEstado($codigMesa, $estado)
+    {
+      $mesa = Mesa::where('codigoMesa', $codigMesa)->first();
+      if($mesa)
+      {
+          $mesa->idEstadoMesa = $estado;
+          $mesa->save();
+          return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+  
 }

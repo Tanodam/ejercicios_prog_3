@@ -10,6 +10,8 @@ return function (App $app) {
 
     $app->group('/productos', function () {
 
+        $this->get('/verPendientes', productoController::class . ':verPendientes')->add(Middleware::class . ":validarToken");
+            
         $this->post('/', productoController::class . ':CargarUno');
 
         $this->post('/baja', productoController::class . ':BorrarUno');
@@ -19,6 +21,7 @@ return function (App $app) {
         $this->get('/', productoController::class . ':TraerTodos');
 
         $this->get('/{id}', productoController::class . ':TraerUno');
+
         
     });
 };

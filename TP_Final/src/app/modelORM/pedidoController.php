@@ -6,10 +6,12 @@ use App\Models\AutentificadorJWT;
 use App\Models\ORM\Pedido;
 use App\Models\ORM\mesaController;
 use App\Models\IApiControler;
+use App\Models\ORM\Ticket;
 use \stdClass;
 
 include_once __DIR__ . '/pedido.php';
 include_once __DIR__ . '/producto.php';
+include_once __DIR__ . '/ticket.php';
 include_once __DIR__ . '/mesaController.php';
 include_once __DIR__ . '/pedido_producto.php';
 include_once __DIR__ . '../../modelAPI/IApiControler.php';
@@ -20,6 +22,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 class pedidoController implements IApiControler
 {
+
   public function Beinvenida($request, $response, $args)
   {
     $response->getBody()->write("GET => Bienvenido!!! ,a UTN FRA SlimFramework");
@@ -77,14 +80,15 @@ class pedidoController implements IApiControler
   //Ale, no se si puede hacer mas facil, si logras hacerlo avisame.
   public function CargarUno($request, $response, $args)
   {
+    $token = $request->getHeader('token');
     $arrayDeParametros = $request->getParsedBody();
-    $token = AutentificadorJWT::ObtenerData($arrayDeParametros["token"]);
+    $token = AutentificadorJWT::ObtenerData($token[0]);
     $tiempo = 0; //Para asignar el tiempo se va a tener en cuenta el tiempo mas alto de todos los productos
     $productoExistente = null; //Se utiliza para verificar en el for si el producto seleccionado elige realmente
     $arrayDeProductosExistentes = ""; //Aca me guardo los productos realmente existentes
     $mesaDisponible = mesaController::obtenerMesaLibre();
     if ($mesaDisponible != null) {
-
+      mesaController::cambiarEstado($mesaDisponible, 1);
       $pedidoNuevo = new Pedido; //genero un nuevo pedido
       $pedidoNuevo->idEstadoPedido = 1; //Inicializo el estado del pedido en 1
       $pedidoNuevo->codigoMesa = $mesaDisponible; //Obtengo una mesa que este libre (ESTADO CERRADA)
@@ -112,7 +116,7 @@ class pedidoController implements IApiControler
           }
           /*---------------------------AGREGO CADA PRODUCTO EXISTENTE A LA TABLA PRODUCTO_PEDIDO----------------------------------------------------*/
           $pedido_producto = new pedido_producto;
-          $pedido_producto->idPedido = $idPedidoCargado;
+          $pedido_producto->codigoPedido = $pedidoNuevo->codigoPedido;
           $pedido_producto->idProducto = $productos[$i];
           $pedido_producto->idEstadoProducto = 1;
           $pedido_producto->save();
@@ -123,22 +127,18 @@ class pedidoController implements IApiControler
         }
       }
       /*/////////////////////////---FIN DEL FOR-----///////////////////////////*/
-      if(strlen($arrayDeProductosExistentes) > 0 )
-      {
+      if (strlen($arrayDeProductosExistentes) > 0) {
         $pedidoNuevo->productos = $arrayDeProductosExistentes; //Actualizado la verdadera cantidad de productos existentes
         $pedidoNuevo->tiempo = $tiempo; //Guardo el tiempo real del pedido
         $pedidoNuevo->save();
         $newResponse = $response->withJson('Pedido ' . $pedidoNuevo->codigoPedido . "-" . $pedidoNuevo->codigoMesa . ' cargado', 200);
-      }
-      else{
-        mesaController::cambiarEstado($pedidoNuevo->codigoMesa,4);
+      } else {
+        mesaController::cambiarEstado($pedidoNuevo->codigoMesa, 4);
         pedido_producto::where("idPedido", "=", $idPedidoCargado)->delete();
         $pedidoNuevo->delete();
         $newResponse = $response->withJson('No se puede cargar un pedido sin productos. Pedido eliminado', 200);
       }
-      
-    }
-    else{
+    } else {
       $newResponse = $response->withJson('No hay mesas disponibles', 200);
     }
     return $newResponse;
@@ -183,7 +183,7 @@ class pedidoController implements IApiControler
       $productos = explode(",", $arrayDeParametros["productos"]);
       for ($i = 0; $i < count($productos); $i++) {
         $pedido_producto = new pedido_producto;
-        $pedido_producto->idPedido = $pedido->id;
+        $pedido_producto->codigoPedido = $pedido->codigo;
         $pedido_producto->idProducto = $productos[$i];
         $pedido_producto->idEstadoProducto = 1;
         $pedido_producto->save();
@@ -235,25 +235,129 @@ class pedidoController implements IApiControler
     return $randomString;
   }
 
-  /*public function verPedidosPendientes($request, $response)
+  public function cambiarEstado($codigoPedido, $estado)
   {
+    $pedido = Pedido::where('codigoPedido', $codigoPedido)->first();
+    $pedido->idEstadoPedido = $estado;
+    if ($estado == 3) { //listo para servir
+      $pedido->tiempo = 0;
+    }
+    $pedido->save();
+  }
+
+  public function prepararPedido($request, $response, $args)
+  {
+    $token = $request->getHeader('token');
+    $arrayDeParametros = $request->getParsedBody();
+    $datos = AutentificadorJWT::ObtenerData($token[0]);
+    $respuesta = pedido_productoController::cambiarEstado($arrayDeParametros["codigoPedido"], $datos->idRol, 1, 2);
+
+    if ($respuesta) {
+      pedidoController::cambiarEstado($arrayDeParametros["codigoPedido"], 2);
+      $newResponse = $response->withJson("Comienza preparacion del pedido", 200);
+    } else {
+      $newResponse = $response->withJson("No habia pedidos o ya fueron tomados para preparar", 200);
+    }
+    return $newResponse;
+  }
+
+  public function terminarPedido($request, $response, $args)
+  {
+    $token = $request->getHeader('token');
+    $arrayDeParametros = $request->getParsedBody();
+    $datos = AutentificadorJWT::ObtenerData($token[0]);
+    $respuesta = pedido_productoController::cambiarEstado($arrayDeParametros["codigoPedido"], $datos->idRol, 2, 3);
+
+    if($respuesta) {
+      $data = pedido_producto::where('codigoPedido', $arrayDeParametros["codigoPedido"])->get();
+      $completo = true;
+      foreach ($data as $value) {
+        if ($value->idEstadoProducto != 3) {
+          $completo = false;
+        }
+      }
+      if ($completo) {
+        pedidoController::cambiarEstado($arrayDeParametros["codigoPedido"], 3);
+        pedido_productoController::cambiarEstado($arrayDeParametros["codigoPedido"], $datos->idRol, 2, 3);
+        $newResponse = $response->withJson("Se preparon todos los productos. Pedido listo para servir", 200);
+      } 
+      else {
+        $newResponse = $response->withJson("Se finalizó la preparacion de los productos", 200);
+      }
+    } else {
+      $newResponse = $response->withJson("No hay productos pendiente para este pedido", 200);
+    }
+    return $newResponse;
+  }
+
+  public function servirPedido($request, $response, $args)
+  {
+    $arrayDeParametros = $request->getParsedBody();
+    $pedido = Pedido::where('codigoPedido', $arrayDeParametros["codigoPedido"])->first();
+    if($pedido->idEstadoPedido == 3) {
+      $pedido = pedido::where('codigoPedido', '=', $arrayDeParametros["codigoPedido"])->first();
+      mesaController::cambiarEstado($pedido->codigoMesa, 2);
+
+      pedidoController::cambiarEstado($arrayDeParametros["codigoPedido"], 4);
+
+      pedido_productoController::cambiarEstado($arrayDeParametros["codigoPedido"], 3, 3, 4);
+
+      $newResponse = $response->withJson("Pedido entregado", 200);
+    } else {
+      $newResponse = $response->withJson("El pedido no esta listo para ser entregado", 200);
+    }
+    return $newResponse;
+  }
+  public function pedirCuenta($request, $response, $args)
+  {
+    $total = 0;
     $arrayDeParametros = $request->getParams();
-    $token = AutentificadorJWT::ObtenerData(($arrayDeParametros["token"]));
-    
+    $pedido = Pedido::where('codigoPedido', '=', $arrayDeParametros['codigoPedido'])->first();
+    $productos = pedido_producto::join('productos', 'productos.id', 'productos_pedidos.idProducto')
+      ->where('codigoPedido', '=', $arrayDeParametros['codigoPedido'])->get();
+    $ticket = [];
+    foreach ($productos as $producto) {
+      $prod = new \stdClass;
+      $prod->producto = $producto->descripcion;
+      $prod->precio = $producto->precio;
+      $total = $total + $producto->precio;
+      array_push($ticket, $prod);
+    }
+    $cuenta = new \stdClass;
+    $cuenta->nombreCliente = $pedido->nombreCliente;
+    $cuenta->ticket = $pedido->codigoPedido;
+    $cuenta->pedido = $ticket;
+    $cuenta->total = $this->total;
+    $nuevoRetorno = $response->withJson($cuenta, 200);
+    mesaController::cambiarEstado($pedido->codigoMesa, 3);
+    return $nuevoRetorno;
+  }
 
-    $pendientes = Pedido::where("idEncargado", "=",$token->idRol)
-    ->join('productos_pedidos', "pedidos.id",'productos_pedidos.idPedido')
-    ->join('roles', 'pedidos.idEncargado', 'roles.id')
-    ->join('productos', 'productos_pedidos.idProducto', 'productos.id')
-    ->join('estados_productos', 'productos_pedidos.idEstadoProducto', 'estados_productos.id')
-    ->select('roles.cargo','pedidos.codigoPedido','pedidos.codigoMesa', 'productos.descripcion', 'estados_productos.estado')
-    ->get()
-    ->toArray();
-
-    $newResponse = $response->withJson($pendientes, 200);
+  public function cobrar($request, $response, $args)
+  {
+    $total = 0;
+    $arrayDeParametros = $request->getParams();
+    $pedido = Pedido::where('codigoPedido', '=', $arrayDeParametros['codigoPedido'])->first();
+    if ($pedido != null && $pedido->idEstadoPedido == 4) {
+      $ticket = new Ticket();
+      $ticket->codigoPedido = $pedido->codigoPedido;
+      $productos = pedido_producto::join('productos', 'productos.id', 'productos_pedidos.idProducto')
+        ->where('codigoPedido', '=', $arrayDeParametros['codigoPedido'])->get();
+      foreach ($productos as $producto) {
+        $total = $total + $producto->precio;
+      }
+      $ticket->precioTotal = $total;
+      $ticket->mesa = $pedido->codigoMesa;
+      $encargado = Encargado::where('id', '=', $pedido->idEncargado)->first();
+      $ticket->encargado = $encargado->usuario;
+      $ticket->save();
+      pedidoController::cambiarEstado($arrayDeParametros['codigoPedido'], 5); //cobrado
+      mesaController::cambiarEstado($pedido->codigoMesa, 4); //cerrada
+      $newResponse = $response->withJson("Pedido cobrado - Mesa Cerrada", 200);
+    } else {
+      $newResponse = $response->withJson("Pedido no encontrado", 200);
+    }
 
     return $newResponse;
-
   }
-  */
 }

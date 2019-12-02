@@ -114,15 +114,13 @@ class Middleware
 {
 	public function validarToken($request,$response,$next){
 		
-		$input = $request;
-        $parametros=$request->getParsedBody();
-		$token = "token";
-        
-        if(array_key_exists("token", $parametros) || count((array)$token) > 5){
+		$token=$request->getHeader('token');
+
+		if($token != null)
+		{
+
 			try{
-				
-				$token = $parametros["token"];
-                if(AutentificadorJWT::VerificarToken($token)){
+				if(AutentificadorJWT::VerificarToken($token[0])){
 					$newResponse = $next($request,$response);
                 }
             }
@@ -130,9 +128,11 @@ class Middleware
             {
 				$newResponse = $response->withJson("Token invalido",200);
             }
-        }else{
-			$newResponse = $response->withJson("No se ha recibido un token. Verificar",200);
-        }
+		}
+		else
+		{
+			$newResponse = $response->withJson("Token no recibido",200);
+		}
         return $newResponse;
     }
 	
@@ -167,16 +167,13 @@ class Middleware
 	
 	public function EsMozo($request,$response,$next){
 		
-		$token = "token";
-		$parametros=$request->getParsedBody();
-		$token = $parametros["token"];
-		$info["RUTA"]=$request->getUri()->getPath();
+		$token=$request->getHeader('token');
 
         if(count((array)$token) > 0){
             try{
 
-                $data = AutentificadorJWT::ObtenerData($token);
-                if($data->cargo == "mozo" || $data->cargo == "socio" )
+				$data = AutentificadorJWT::ObtenerData($token[0]);
+                if($data->cargo === "mozo" || $data->cargo === "socio" )
                 {
                     $newResponse = $next($request,$response);
 				}
@@ -184,9 +181,10 @@ class Middleware
 					$newResponse = $response->withJson("Esta accion solo la puede cumplir un mozo",200);
 				}
 			}
-            catch(Exception $e){
+            catch(\Exception $e){
 				
-				$newResponse = $response->withJson("Ha ocurrido un error. Verificar",200);
+				echo"Entro aca2";
+				$newResponse = $response->withJson("Ha ocurrido un error Mozo. Verificar". $e,200);
 			}
         }else{
 			$newResponse = $response->withJson("No se ha recibido un token. Verificar",200);
