@@ -97,7 +97,10 @@ class pedidoController implements IApiControler
       $pedidoNuevo->idEncargado = $token->id; //Agarro el id del encargado desde el token
       $pedidoNuevo->nombreCliente = $arrayDeParametros["nombreCliente"];
       $archivos = $request->getUploadedFiles(); // FALTA MOVER FOTO A CARPETA IMAGENES
-      $pedidoNuevo->imagen = $archivos["imagen"]->file;
+      if(array_key_exists("imagen",  $archivos))
+      {
+        $pedidoNuevo->imagen = $archivos["imagen"]->file;
+      }
       $pedidoNuevo->tiempo = 1; //Asigno un tiempo ficticio despues de corrige
       $pedidoNuevo->save();
       $idPedidoCargado = $pedidoNuevo->id;
@@ -327,7 +330,7 @@ class pedidoController implements IApiControler
     $cuenta->nombreCliente = $pedido->nombreCliente;
     $cuenta->ticket = $pedido->codigoPedido;
     $cuenta->pedido = $ticket;
-    $cuenta->total = $this->total;
+    $cuenta->total = $total;
     $nuevoRetorno = $response->withJson($cuenta, 200);
     mesaController::cambiarEstado($pedido->codigoMesa, 3);
     return $nuevoRetorno;
